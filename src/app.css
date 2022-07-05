@@ -17,7 +17,7 @@ h2{
 
 }
 
- .hoverC:hover {
+ .hoverClick:hover {
      -webkit-filter: brightness(80%);
  }
 
@@ -36,7 +36,14 @@ a, b ,*,.unselectable {
 
 @layer components {
     .mrkCard {
-        @apply float-left bg-gray-300 bg-opacity-60 h-fit m-1 min-w-fit flex-col rounded-xl p-2 shadow shadow-gray-700;
+        @apply overflow-hidden float-left bg-gray-300 bg-opacity-60 h-fit m-1 min-w-fit flex-col rounded-xl shadow shadow-gray-700;
 
     }
+    .hoverClick {
+        @apply  active:bg-opacity-60 hover:bg-opacity-40
+    }
+
+}
+.mrkCard {
+   min-width: 10rem;
 }
