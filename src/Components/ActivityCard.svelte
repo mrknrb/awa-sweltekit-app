@@ -40,7 +40,7 @@
 		<h3 class="justify-center text-2xl text-center flex-grow ">{activityType}</h3>
 		{#if activityCardState == ActivityCardStates.Picker}
 			<div
-				class="bg-green-600 w-10 h-10 flex justify-center rounded-bl-xl hoverClick float-right"
+				class="bg-green-600 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl"
 				on:click={() => {
 					saveDataMainStoreReducers.addActivity(activityType);
 				}}

@@ -19,7 +19,7 @@
 		<h1>ActivityList</h1>
 	</div>
 	<div style="display: flex;justify-content:center ;flex-wrap: wrap;">
-		<div class=" w-full overflow-auto flex flex-col  " style="white-space:nowrap;">
+		<div class=" w-full overflow-auto flex flex-col " style="white-space:nowrap; padding: 10px;">
 			<div class=" w-full  flex mb-2 " style="white-space:nowrap;">
 				{#each $saveDataMainStore.activityList as data, i}
 					<ActivityTimeElement

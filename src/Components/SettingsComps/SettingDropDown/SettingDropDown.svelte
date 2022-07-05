@@ -4,6 +4,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import MdKeyboardArrowDown from 'svelte-icons/md/MdKeyboardArrowDown.svelte';
 	import MdKeyboardArrowUp from 'svelte-icons/md/MdKeyboardArrowUp.svelte';
+	import { slide } from 'svelte/transition';
 	export let settingStaticData: StaticData_Setting;
 	export let settingSaveData: string;
 	let isShowing = false;
@@ -17,7 +18,8 @@
 <b class="ml-2">{settingStaticData.settingName}</b>
 <div class="w-full mt-1 mb-1  bg">
 	<div
-		class="hoverClick bg-gray-400 bg-opacity-40 cursorSelect  w-full p-0.5 flex flex-row justify-between"
+		class="hoverClick bg-gray-200 bg-opacity-40 cursorSelect  w-full p-0.5 flex flex-row justify-between
+		  shadow shadow-gray-700 "
 		on:click={() => {
 			isShowing = !isShowing;
 		}}
@@ -32,7 +34,7 @@
 		</div>
 	</div>
 	{#if isShowing}
-		<div style="width: 100%">
+		<div class="w-full " transition:slide>
 			{#each settingStaticData.settingOptions as option, i}
 				<SettingDropDownOption
 					on:click={() => {
