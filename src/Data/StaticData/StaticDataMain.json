@@ -1,0 +1,215 @@
+{
+  "activities": [
+    {
+      "activityGroupType": "essentials",
+      "activityLogo": "",
+      "activitySettings": [
+        {
+          "settingName": "efficiency",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 1,
+              "settingOptionName": "Minimal"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 1.5,
+              "settingOptionName": "Frugal"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 3,
+              "settingOptionName": "Average"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 5,
+              "settingOptionName": "Wasting"
+            }
+          ],
+          "settingType": "dropDown"
+        },
+        {
+          "settingName": "Quality",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 1,
+              "settingOptionName": "HumanFuel"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 1.5,
+              "settingOptionName": "Good"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 3,
+              "settingOptionName": "Best"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "eating",
+      "basePrice": 15000,
+      "defaultUnit": "Minute_Day",
+      "productive": "NonProductive"
+    },
+    {
+      "activityGroupType": "essentials",
+      "activityLogo": "",
+      "activitySettings": [
+        {
+          "settingName": "HousingType",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Own"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 100000,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Rent"
+            }
+          ],
+          "settingType": "dropDown"
+        },
+        {
+          "settingName": "HouseSizePerPerson",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 1,
+              "settingOptionName": ""
+            }
+          ],
+          "settingType": "number"
+        }
+      ],
+      "activityType": "housing",
+      "basePrice": 0,
+      "defaultUnit": "Hour_Month",
+      "productive": "NonProductive"
+    },
+    {
+      "activityGroupType": "health",
+      "activityLogo": "",
+      "activitySettings": [
+        {
+          "settingName": "SportType",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 10000,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Swimming"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 1000,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Running"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 10000,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Gym"
+            }
+          ],
+          "settingType": "dropDown"
+        },
+        {
+          "settingName": "WithSomeone",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 0,
+              "settingOptionName": "0"
+            },
+            {
+              "coreValueTypes": [
+                {
+                  "coreValue": "socialisation",
+                  "rank": 3
+                }
+              ],
+              "moneyAdd": 0,
+              "moneyMultiplier": 0,
+              "settingOptionName": "1"
+            }
+          ],
+          "settingType": "boolean"
+        }
+      ],
+      "activityType": "sport",
+      "basePrice": 0,
+      "defaultUnit": "FullDay_Year",
+      "productive": "NonProductive"
+    }
+  ],
+  "activityGroups": [
+    {
+      "GroupColor": "",
+      "GroupType": "adventure"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "altruism"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "creating"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "essentials"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "goingOut"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "health"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "lazyFun"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "learning"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "love"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "relaxing"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "socialisation"
+    },
+    {
+      "GroupColor": "",
+      "GroupType": "status"
+    }
+  ]
+}

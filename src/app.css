@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family:"Raleway";
+}
+
+h1{
+    font-size: 30px;
+font-weight: bold;
+
+}
+h2{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+ .hoverC:hover {
+     -webkit-filter: brightness(80%);
+ }
+
+
+
+a, b ,*,.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cursorSelect {cursor: pointer;}
+
+@layer components {
+    .mrkCard {
+        @apply float-left bg-gray-300 bg-opacity-60 h-fit m-1 min-w-fit flex-col rounded-xl p-2 shadow shadow-gray-700;
+
+    }
+}

@@ -1,0 +1,21 @@
+<!--<link href="https://unpkg.com/mono-icons@1.3.1/iconfont/icons.css" rel="stylesheet">-->
+
+
+<script lang="ts">
+
+    import TopBar from "./TopBar.svelte"
+    import ActivityPicker from "./ActivityPicker.svelte"
+    import DiagramBody from "./DiagramBody.svelte"
+
+</script>
+
+<TopBar></TopBar>
+
+<div style="height: calc(100% - 50px) ;background-color: #dedede;width: 100%" >
+
+    <ActivityPicker></ActivityPicker>
+    <DiagramBody></DiagramBody>
+
+</div>
+
+
