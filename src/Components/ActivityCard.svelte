@@ -10,12 +10,12 @@
 	import { StaticData_Setting } from '../Data/StaticData/StaticDataTypes/StaticData_Setting';
 	import { StaticData_SettingOption } from '../Data/StaticData/StaticDataTypes/StaticData_SettingOption';
 	import { OMF } from '../Egyebek/OMF';
+	import MdAdd from 'svelte-icons/md/MdAdd.svelte';
 
 	export let activityType: ActivityTypes;
 	export let activitySaveData: SaveData_Activity = new SaveData_Activity(activityType);
 	$: ActivityStaticData = getActivityStaticDataByType(activityType);
 	export let activityCardState: ActivityCardStates;
-	import MdAdd from 'svelte-icons/md/MdAdd.svelte';
 	$: SettingChange = (settingData: StaticData_Setting, optionData: StaticData_SettingOption) => {
 		saveDataMainStoreReducers.settingChange(
 			activitySaveData.activityId,
@@ -33,6 +33,10 @@
 		if (hovered) return ' brightness-105';
 		return '';
 	};
+	let dragCursor = () => {
+		if (activityCardState == ActivityCardStates.List) return 'hover:cursor-grab';
+		return '';
+	};
 	export let highlightBorder = false;
 	$: highlightBorderFunc = () => {
 		//console.log(highlightBorder);
@@ -41,9 +45,11 @@
 	};
 </script>
 
-<span on:mouseenter on:mouseleave class="mrkCard {brighterOnHover()} {highlightBorderFunc()}">
+<span on:mouseenter on:mouseleave class="mrkCard  {brighterOnHover()} {highlightBorderFunc()}">
 	<div class="flex ">
-		<h3 on:mousedown class="justify-center text-2xl text-center flex-grow ">{activityType}</h3>
+		<h3 on:mousedown class="justify-center text-2xl text-center flex-grow {dragCursor()}">
+			{activityType}
+		</h3>
 		{#if activityCardState == ActivityCardStates.Picker}
 			<div
 				class="bg-green-600 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl"

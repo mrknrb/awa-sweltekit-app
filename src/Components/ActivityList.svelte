@@ -4,8 +4,7 @@
 	import { ActivityCardStates } from '../Enums/ActivityCardStates';
 	import ActivityTimeElement from './ActivityTimeElement.svelte';
 	import { storeTempData } from '../Store/StoreTempData';
-
-	$: hoverActivityId = 'string';
+	let hoverActivityId = '';
 	$: activityHoveredFunc = (activityId: string) => {
 		//  console.log(option, settingSaveData)
 		return activityId === hoverActivityId;
@@ -14,13 +13,14 @@
 		if (!activityId) hoverActivityId = '';
 		hoverActivityId = activityId;
 	};
-	$: dragActivityId = '';
+	let dragActivityId = '';
 	$: mouseGrabEffect = () => {
+		console.log('zzzzz');
 		if (dragActivityId) {
 			document.body.style.cursor = 'grab';
 		}
 	};
-	$: dropActivityId = '';
+	let dropActivityId = '';
 	storeTempData.subscribe((value) => {
 		if (!value.mouseDown) {
 			if (dragActivityId && dropActivityId) {
@@ -46,18 +46,22 @@
 		<h1>ActivityList</h1>
 	</div>
 	<div style="display: flex;justify-content:center ;flex-wrap: wrap;">
-		<div class=" w-full overflow-auto flex flex-col " style="white-space:nowrap; padding: 10px;">
-			<div class=" w-full  flex mb-2 " style="white-space:nowrap;">
+		<div class=" w-full flex flex-col " style="white-space:nowrap; padding: 10px;">
+			<div class=" w-full  flex mb-2 overflow-auto" style="white-space:nowrap;">
 				{#each $saveDataMainStore.activityList as data, i}
 					<ActivityTimeElement
-						on:mouseenter={mouseEnterFunc(data.activityId)}
-						on:mouseleave={mouseEnterFunc()}
+						on:mouseenter={() => {
+							mouseEnterFunc(data.activityId);
+						}}
+						on:mouseleave={() => {
+							mouseEnterFunc();
+						}}
 						hovered={activityHoveredFunc(data.activityId)}
 						activitySaveData={data}
 					/>
 				{/each}
 			</div>
-			<div class=" w-full  flex" style="white-space:nowrap;">
+			<div class=" w-full  flex flex-wrap " style="">
 				{#each $saveDataMainStore.activityList as data, i}
 					<ActivityCard
 						highlightBorder={mouseEnterDropHighlight(data.activityId)}
@@ -68,7 +72,9 @@
 							mouseEnterFunc(data.activityId);
 							dropActivityId = data.activityId;
 						}}
-						on:mouseleave={mouseEnterFunc()}
+						on:mouseleave={() => {
+							mouseEnterFunc();
+						}}
 						hovered={activityHoveredFunc(data.activityId)}
 						activityType={data.activityType}
 						activitySaveData={data}

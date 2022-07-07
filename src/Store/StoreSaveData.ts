@@ -57,6 +57,7 @@ export abstract class saveDataMainStoreReducers {
 	}
 
 	static changeActivityOrder(fromActivityId: string, toActivityId: string) {
+		console.log('changeActivityOrder');
 		saveDataMainStore.update((value) => {
 			let fromIndex = 0;
 			let toIndex = 0;
