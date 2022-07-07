@@ -7,7 +7,7 @@
 
 <TopBar />
 
-<div style="height: calc(100% - 50px) ;background-color: #dedede;width: 100%">
+<div style="height: calc(100% - 50px) ;width: 100%" class="bg-gray-400">
 	<ActivityPicker />
 	<DiagramBody />
 </div>

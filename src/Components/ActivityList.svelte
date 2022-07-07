@@ -1,9 +1,11 @@
 <script lang="ts">
 	import ActivityCard from './ActivityCard.svelte';
-	import { saveDataMainStore } from '../Store/StoreSaveData';
+	import { saveDataMainStore, saveDataMainStoreReducers } from '../Store/StoreSaveData';
 	import { ActivityCardStates } from '../Enums/ActivityCardStates';
 	import ActivityTimeElement from './ActivityTimeElement.svelte';
-	let hoverActivityId: string;
+	import { storeTempData } from '../Store/StoreTempData';
+
+	$: hoverActivityId = 'string';
 	$: activityHoveredFunc = (activityId: string) => {
 		//  console.log(option, settingSaveData)
 		return activityId === hoverActivityId;
@@ -11,6 +13,31 @@
 	$: mouseEnterFunc = (activityId?: string) => {
 		if (!activityId) hoverActivityId = '';
 		hoverActivityId = activityId;
+	};
+	$: dragActivityId = '';
+	$: mouseGrabEffect = () => {
+		if (dragActivityId) {
+			document.body.style.cursor = 'grab';
+		}
+	};
+	$: dropActivityId = '';
+	storeTempData.subscribe((value) => {
+		if (!value.mouseDown) {
+			if (dragActivityId && dropActivityId) {
+				saveDataMainStoreReducers.changeActivityOrder(dragActivityId, dropActivityId);
+				dragActivityId = '';
+				dropActivityId = '';
+			}
+		}
+	});
+
+	$: mouseEnterDropHighlight = (activityId?: string) => {
+		if (dragActivityId && dropActivityId)
+			if (activityId == dropActivityId) {
+				return true;
+			} else {
+				return false;
+			}
 	};
 </script>
 
@@ -33,7 +60,14 @@
 			<div class=" w-full  flex" style="white-space:nowrap;">
 				{#each $saveDataMainStore.activityList as data, i}
 					<ActivityCard
-						on:mouseenter={mouseEnterFunc(data.activityId)}
+						highlightBorder={mouseEnterDropHighlight(data.activityId)}
+						on:mousedown={() => {
+							dragActivityId = data.activityId;
+						}}
+						on:mouseenter={() => {
+							mouseEnterFunc(data.activityId);
+							dropActivityId = data.activityId;
+						}}
 						on:mouseleave={mouseEnterFunc()}
 						hovered={activityHoveredFunc(data.activityId)}
 						activityType={data.activityType}
