@@ -5,6 +5,49 @@
       "activityLogo": "",
       "activitySettings": [
         {
+          "settingName": "HousingType",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Own"
+            },
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 100000,
+              "moneyMultiplier": 0,
+              "settingOptionName": "Rent"
+            }
+          ],
+          "settingType": "dropDown"
+        },
+        {
+          "settingName": "HouseSizePerPerson",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "moneyAdd": 0,
+              "moneyMultiplier": 1,
+              "settingOptionName": ""
+            }
+          ],
+          "settingType": "number"
+        }
+      ],
+      "activityType": "housing",
+      "basePrice": 0,
+      "defaultUnit": "Hour_Month",
+      "hasTime": false,
+      "productive": "NonProductive",
+      "CoreValuesMaximumTime": 0,
+      "CoreValuesTimeDependent": false
+    },
+    {
+      "activityGroupType": "essentials",
+      "activityLogo": "",
+      "activitySettings": [
+        {
           "settingName": "efficiency",
           "settingOptions": [
             {
@@ -44,13 +87,31 @@
               "settingOptionName": "HumanFuel"
             },
             {
-              "coreValueTypes": [],
+              "coreValueTypes": [
+                {
+                  "coreValue": "health",
+                  "rank": 2
+                },
+                {
+                  "coreValue": "enjoyment",
+                  "rank": 2
+                }
+              ],
               "moneyAdd": 0,
               "moneyMultiplier": 1.5,
               "settingOptionName": "Good"
             },
             {
-              "coreValueTypes": [],
+              "coreValueTypes": [
+                {
+                  "coreValue": "health",
+                  "rank": 4
+                },
+                {
+                  "coreValue": "enjoyment",
+                  "rank": 4
+                }
+              ],
               "moneyAdd": 0,
               "moneyMultiplier": 3,
               "settingOptionName": "Best"
@@ -62,47 +123,10 @@
       "activityType": "eating",
       "basePrice": 15000,
       "defaultUnit": "Minute_Day",
-      "productive": "NonProductive"
-    },
-    {
-      "activityGroupType": "essentials",
-      "activityLogo": "",
-      "activitySettings": [
-        {
-          "settingName": "HousingType",
-          "settingOptions": [
-            {
-              "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 0,
-              "settingOptionName": "Own"
-            },
-            {
-              "coreValueTypes": [],
-              "moneyAdd": 100000,
-              "moneyMultiplier": 0,
-              "settingOptionName": "Rent"
-            }
-          ],
-          "settingType": "dropDown"
-        },
-        {
-          "settingName": "HouseSizePerPerson",
-          "settingOptions": [
-            {
-              "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 1,
-              "settingOptionName": ""
-            }
-          ],
-          "settingType": "number"
-        }
-      ],
-      "activityType": "housing",
-      "basePrice": 0,
-      "defaultUnit": "Hour_Month",
-      "productive": "NonProductive"
+      "hasTime": true,
+      "productive": "NonProductive",
+      "CoreValuesMaximumTime": 0,
+      "CoreValuesTimeDependent": false
     },
     {
       "activityGroupType": "health",
@@ -159,57 +183,60 @@
       "activityType": "sport",
       "basePrice": 0,
       "defaultUnit": "FullDay_Year",
-      "productive": "NonProductive"
+      "hasTime": true,
+      "productive": "NonProductive",
+      "CoreValuesMaximumTime": 60,
+      "CoreValuesTimeDependent": true
     }
   ],
   "activityGroups": [
     {
-      "GroupColor": "",
-      "GroupType": "adventure"
+      "GroupType": "adventure",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "altruism"
+      "GroupType": "altruism",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "creating"
+      "GroupType": "creating",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "essentials"
+      "GroupType": "essentials",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "goingOut"
+      "GroupType": "goingOut",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "health"
+      "GroupType": "health",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "lazyFun"
+      "GroupType": "lazyFun",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "learning"
+      "GroupType": "learning",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "love"
+      "GroupType": "love",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "relaxing"
+      "GroupType": "relaxing",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "socialisation"
+      "GroupType": "socialisation",
+      "GroupColor": ""
     },
     {
-      "GroupColor": "",
-      "GroupType": "status"
+      "GroupType": "status",
+      "GroupColor": ""
     }
   ]
 }

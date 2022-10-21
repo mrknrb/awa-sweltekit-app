@@ -30,7 +30,15 @@ export abstract class saveDataMainStoreReducers {
 			return value;
 		});
 	}
+	static deleteActivity(activityId: string) {
+		saveDataMainStore.update((value) => {
+			value.activityList = value.activityList.filter((value1, index) => {
+				return value1.activityId !== activityId;
+			});
 
+			return value;
+		});
+	}
 	static saveData() {
 		if (!saveDataMainActual) return;
 		localStorage.setItem('awasave', JSON.stringify(saveDataMainActual));
@@ -71,14 +79,28 @@ export abstract class saveDataMainStoreReducers {
 					toIndex = index;
 				}
 			});
+
 			function arraymove(arr: any[], fromIndex: number, toIndex: number) {
 				let element = arr[fromIndex];
 				arr.splice(fromIndex, 1);
 				arr.splice(toIndex, 0, element);
 				return arr;
 			}
+
 			value.activityList = arraymove(value.activityList, fromIndex, toIndex);
 			console.log(value.activityList);
+			return value;
+		});
+	}
+
+	static changeDuration(activityId: string, duration: number) {
+		saveDataMainStore.update((value) => {
+			let activity = value.activityList.find((value1) => {
+				return value1.activityId == activityId;
+			});
+			if (!activity) return value;
+			activity.duration = duration;
+
 			return value;
 		});
 	}

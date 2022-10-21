@@ -1,16 +1,35 @@
 <script lang="ts">
 	import { StaticData_Setting } from '../../../Data/StaticData/StaticDataTypes/StaticData_Setting.js';
+	import FaToggleOff from 'svelte-icons/fa/FaToggleOff.svelte';
+	import FaToggleOn from 'svelte-icons/fa/FaToggleOn.svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	export let settingStaticData: StaticData_Setting;
 	export let settingSaveData = false;
+	const dispatch = createEventDispatcher();
+
+	let clickEvent = () => {
+		/* settingSaveData = !settingSaveData;*/
+		dispatch('SettingChange', !settingSaveData);
+	};
+	$: optionColorFunc = () => {
+		if (settingSaveData) return 'bg-green-600 bg-opacity-80';
+
+		return 'bg-gray-400 bg-opacity-40';
+	};
 </script>
 
-<div style="width: 100%;background-color: rgba(115,115,115,0.52)">
-	{#if settingSaveData}
-		<i style="float: right" class="mi-circle-check" />
-	{:else}
-		<i style="float: right" class="mi-circle" />
-	{/if}
-
-	<b> {settingStaticData.settingName}</b>
+<div
+	on:click={clickEvent}
+	class="flex flex-row justify-between w-full cursorSelect hoverClick grow {optionColorFunc()}"
+	style="align-items: center"
+>
+	<b class="ml-2"> {settingStaticData.settingName}</b>
+	<div class="h-4 w-4 mr-2 flex flex-col grow ">
+		{#if settingSaveData}
+			<FaToggleOn />
+		{:else}
+			<FaToggleOff />
+		{/if}
+	</div>
 </div>

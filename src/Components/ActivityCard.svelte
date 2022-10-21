@@ -6,75 +6,104 @@
 	import { ActivityTypes } from '../Enums/ActivityTypes.js';
 	import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity.js';
 	import { getActivityStaticDataByType } from '../Store/GlobalStaticData.js';
-	import { ActivityCardStates } from '../Enums/ActivityCardStates';
 	import { StaticData_Setting } from '../Data/StaticData/StaticDataTypes/StaticData_Setting';
-	import { StaticData_SettingOption } from '../Data/StaticData/StaticDataTypes/StaticData_SettingOption';
 	import { OMF } from '../Egyebek/OMF';
-	import MdAdd from 'svelte-icons/md/MdAdd.svelte';
-
+	import IoIosMenu from 'svelte-icons/io/IoIosMenu.svelte';
+	import SettingNumber from './SettingsComps/SettingNumber/SettingNumber.svelte';
+	import SettingTime from './SettingsComps/SettingTime/SettingTime.svelte';
+	import { storeTempData, TempData, tempDataStoreReducers } from '../Store/StoreTempData';
+	import IoIosLogIn from 'svelte-icons/io/IoIosLogIn.svelte';
+	import { saveDataMainStore } from '../Store/StoreSaveData';
+	import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
 	export let activityType: ActivityTypes;
 	export let activitySaveData: SaveData_Activity = new SaveData_Activity(activityType);
 	$: ActivityStaticData = getActivityStaticDataByType(activityType);
-	export let activityCardState: ActivityCardStates;
-	$: SettingChange = (settingData: StaticData_Setting, optionData: StaticData_SettingOption) => {
+	$: SettingChange = (settingData: StaticData_Setting, optionData: string) => {
 		saveDataMainStoreReducers.settingChange(
 			activitySaveData.activityId,
 			settingData.settingName,
-			optionData.settingOptionName
+			optionData
 		);
 	};
 
-	$: settingSaveFunc = (settingName: string) => {
+	$: getSettingSaveFunc = (settingName: string) => {
 		return OMF.get(activitySaveData.settings, settingName);
 	};
-	export let hovered = false;
-
-	$: brighterOnHover = () => {
-		if (hovered) return ' brightness-105';
-		return '';
-	};
-	let dragCursor = () => {
-		if (activityCardState == ActivityCardStates.List) return 'hover:cursor-grab';
-		return '';
-	};
-	export let highlightBorder = false;
-	$: highlightBorderFunc = () => {
-		//console.log(highlightBorder);
-		if (highlightBorder) return 'ml-6';
-		return '';
-	};
+	let tempData: TempData;
+	storeTempData.subscribe((tempData2) => {
+		tempData = tempData2;
+	});
 </script>
 
-<span on:mouseenter on:mouseleave class="mrkCard  {brighterOnHover()} {highlightBorderFunc()}">
+<span class="mrkCard  ">
 	<div class="flex ">
-		<h3 on:mousedown class="justify-center text-2xl text-center flex-grow {dragCursor()}">
+		<h3 class="justify-center text-2xl text-center flex-grow">
 			{activityType}
 		</h3>
-		{#if activityCardState == ActivityCardStates.Picker}
-			<div
-				class="bg-green-600 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl"
-				on:click={() => {
-					saveDataMainStoreReducers.addActivity(activityType);
-				}}
-			>
-				<MdAdd />
-			</div>
-		{/if}
+		<div
+			on:click={() => {
+				if (tempData.draggingActionId === '')
+					tempDataStoreReducers.draggingModeStartStop(activitySaveData.activityId);
+				else {
+					saveDataMainStoreReducers.changeActivityOrder(
+						tempData.draggingActionId,
+						activitySaveData.activityId
+					);
+					tempDataStoreReducers.draggingModeStartStop('');
+				}
+			}}
+			class="overflow-hidden border-t-gray-500 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl cursorSelect hover:bg-blue-300"
+		>
+			{#if tempData.draggingActionId === ''}
+				<IoIosMenu />
+			{:else if tempData.draggingActionId === activitySaveData.activityId}
+				<IoIosMenu />
+			{:else}
+				<div class="bg-amber-400">
+					<IoIosLogIn />
+				</div>
+			{/if}
+		</div>
+		<div
+			on:click={() => {
+				saveDataMainStoreReducers.deleteActivity(activitySaveData.activityId);
+			}}
+			class="border-t-gray-500 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl cursorSelect hover:bg-orange-600"
+		>
+			<IoIosClose />
+		</div>
 		<!-- { activitySaveData.activityId}-->
 	</div>
 	<div class="flex flex-col  ">
 		{#each ActivityStaticData.activitySettings as setting, i}
 			{#if setting.settingType === SettingsTypes.boolean}
-				<SettingBool settingStaticData={setting} />
-			{:else if setting.settingType === SettingsTypes.dropDown}
-				<SettingDropDown
+				<SettingBool
 					settingStaticData={setting}
 					on:SettingChange={(e) => {
 						SettingChange(setting, e.detail);
 					}}
-					settingSaveData={settingSaveFunc(setting.settingName)}
+					settingSaveData={getSettingSaveFunc(setting.settingName)}
+				/>
+			{:else if setting.settingType === SettingsTypes.dropDown}
+				<SettingDropDown
+					settingStaticData={setting}
+					settingSaveData={getSettingSaveFunc(setting.settingName)}
+					on:SettingChange={(e) => {
+						SettingChange(setting, e.detail);
+					}}
+				/>
+			{:else if setting.settingType === SettingsTypes.number}
+				<SettingNumber
+					settingStaticData={setting}
+					settingSaveData={getSettingSaveFunc(setting.settingName)}
+					on:SettingChange={(e) => {
+						SettingChange(setting, e.detail);
+					}}
 				/>
 			{/if}
 		{/each}
+		{#if ActivityStaticData.hasTime === true}
+			<SettingTime {activitySaveData} {ActivityStaticData} />
+		{/if}
 	</div>
 </span>

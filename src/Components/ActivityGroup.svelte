@@ -2,7 +2,7 @@
 	import { StaticData_ActivityGroup } from '../Data/StaticData/StaticDataTypes/StaticData_ActivityGroup.js';
 	import ActivityCard from './ActivityCard.svelte';
 	import { globalStaticData } from '../Store/GlobalStaticData.js';
-	import { ActivityCardStates } from '../Enums/ActivityCardStates';
+	import ActivityPickerCard from './ActivityPickerCard.svelte';
 
 	export let groupData: StaticData_ActivityGroup;
 </script>
@@ -20,10 +20,7 @@
 		<div style="display: flex;justify-content:center ;flex-wrap: wrap;">
 			{#each globalStaticData.activities as activity, i}
 				{#if activity.activityGroupType === groupData.GroupType}
-					<ActivityCard
-						activityType={activity.activityType}
-						activityCardState={ActivityCardStates.Picker}
-					/>
+					<ActivityPickerCard activityType={activity.activityType} />
 				{/if}
 			{/each}
 		</div>

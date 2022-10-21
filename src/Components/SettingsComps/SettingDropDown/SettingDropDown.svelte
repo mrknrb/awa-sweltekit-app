@@ -38,7 +38,7 @@
 			{#each settingStaticData.settingOptions as option, i}
 				<SettingDropDownOption
 					on:click={() => {
-						dispatch('SettingChange', option);
+						dispatch('SettingChange', option.settingOptionName);
 					}}
 					optionStaticData={option}
 					optionActive={optionActive(option.settingOptionName)}
