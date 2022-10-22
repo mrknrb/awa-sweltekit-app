@@ -7,7 +7,7 @@
 	import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity.js';
 	import { getActivityStaticDataByType } from '../Store/GlobalStaticData.js';
 	import { StaticData_Setting } from '../Data/StaticData/StaticDataTypes/StaticData_Setting';
-	import { OMF } from '../Egyebek/OMF';
+	import { OMF } from '../../../Egyebek/OMF';
 	import IoIosMenu from 'svelte-icons/io/IoIosMenu.svelte';
 	import SettingNumber from './SettingsComps/SettingNumber/SettingNumber.svelte';
 	import SettingTime from './SettingsComps/SettingTime/SettingTime.svelte';

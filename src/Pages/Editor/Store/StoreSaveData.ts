@@ -2,7 +2,7 @@ import { SaveData_Main } from '../Data/SaveData/SaveData_Main.js';
 import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity.js';
 import { writable } from 'svelte/store';
 import { ActivityTypes } from '../Enums/ActivityTypes.js';
-import { OMF } from '../Egyebek/OMF';
+import { OMF } from '../../../Egyebek/OMF';
 
 let SaveDataDefault: SaveData_Main = {
 	_id: Math.random().toString(),
@@ -16,6 +16,8 @@ export let saveDataMainStore = writable(SaveDataDefault, () => {
 	console.log('got a subscriber');
 	return () => console.log('no more subscribers');
 });
+
+//ki lehet valtani dollarjellel az elejen. nem tudom kell e
 export let saveDataMainActual: SaveData_Main;
 saveDataMainStore.subscribe((value) => {
 	saveDataMainActual = value;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity';
-	import { nagyitasKalkulalo } from '../Egyebek/NagyitasKalkulalo';
+	import { nagyitasKalkulalo } from '../../../Egyebek/NagyitasKalkulalo';
 
 	export let nagyitas;
 	export let igazito;

@@ -1,16 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import '../scrollbar.css';
-
-	import { storeTempData } from '../Store/StoreTempData';
-
-	function mouseDownUpUpdate(down: boolean) {
-		storeTempData.update((data) => {
-			let data2 = data;
-			data2.mouseDown = down;
-			return data2;
-		});
-	}
+	import PageButton from '../Pages/Layout/Components/PageButton.svelte';
 </script>
 
 <svelte:head>
@@ -20,18 +11,12 @@
 </svelte:head>
 
 <header class="bg-amber-500 h-10">
-	<div style="height: 50px" />
+	<div style="height: 50px" class="flex flex-row">
+		<PageButton name="DIY LifeStyle" src="" />
+		<PageButton name="Editor" src="editor" />
+	</div>
 </header>
 
-<div
-	on:mouseup={() => {
-		mouseDownUpUpdate(false);
-	}}
-	on:mousedown={() => {
-		mouseDownUpUpdate(true);
-	}}
-	style="height: calc(100% - 50px);width: 100%"
-	class=""
->
+<div style="height: calc(100% - 50px);width: 100%" class="">
 	<slot />
 </div>

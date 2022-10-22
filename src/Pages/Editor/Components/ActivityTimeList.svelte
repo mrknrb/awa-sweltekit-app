@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { saveDataMainStore } from '../Store/StoreSaveData';
 	import ActivityTimeElement from './ActivityTimeElement.svelte';
-	import { nagyitasKalkulalo } from '../Egyebek/NagyitasKalkulalo';
-	import { IdoListaGeneralo } from '../Egyebek/IdoListaGeneralo';
-	import { TimeUnits } from '../Egyebek/TimeUnit/TimeUnits';
+	import { nagyitasKalkulalo } from '../../../Egyebek/NagyitasKalkulalo';
+	import { IdoListaGeneralo } from '../../../Egyebek/IdoListaGeneralo';
+	import { TimeUnits } from '../../../Egyebek/TimeUnit/TimeUnits';
+	import DiagramTitle from './DiagramTitle.svelte';
 
 	$: nagyitas = 1;
 	let ebrenletIdo = 16 * 60;
@@ -18,6 +19,7 @@
 	console.log(IdoMertekLista);
 </script>
 
+<DiagramTitle title="Time" />
 <div class="   ">
 	<input
 		type="button"
