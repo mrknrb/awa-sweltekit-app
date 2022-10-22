@@ -40,6 +40,9 @@
 					on:click={() => {
 						dispatch('SettingChange', option.settingOptionName);
 					}}
+					on:click={() => {
+						isShowing = false;
+					}}
 					optionStaticData={option}
 					optionActive={optionActive(option.settingOptionName)}
 				/>

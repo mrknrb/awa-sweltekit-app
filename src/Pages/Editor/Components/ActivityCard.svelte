@@ -33,9 +33,13 @@
 	storeTempData.subscribe((tempData2) => {
 		tempData = tempData2;
 	});
+	$: imageurl = 'images/' + activityType + '.jpg';
 </script>
 
-<span class="mrkCard  ">
+<div
+	class="mrkCard"
+	style="background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten;background-image: url({imageurl});"
+>
 	<div class="flex ">
 		<h3 class="justify-center text-2xl text-center flex-grow">
 			{activityType}
@@ -106,4 +110,4 @@
 			<SettingTime {activitySaveData} {ActivityStaticData} />
 		{/if}
 	</div>
-</span>
+</div>

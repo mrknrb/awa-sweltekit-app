@@ -7,7 +7,7 @@
 	export let optionActive: boolean;
 
 	$: optionColorFunc = () => {
-		if (optionActive) return 'bg-green-600 bg-opacity-80';
+		if (optionActive) return 'bg-gray-600 bg-opacity-40';
 
 		return 'bg-gray-400 bg-opacity-40';
 	};
