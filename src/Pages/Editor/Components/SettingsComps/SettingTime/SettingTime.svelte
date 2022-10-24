@@ -25,12 +25,12 @@
 			on:keyup={() => {
 				changeDuration();
 			}}
-			class="w-20 bg-gray-400 pl-4 font-bold rounded"
+			class="w-20 bg-transparent pl-4 font-bold rounded"
 		/>
 		<input
 			type="button"
 			value="-"
-			class="m-auto justify-center rounded w-8 text-2xl font-bold  pl-2   text-center cursor-pointer hover:bg-gray-400"
+			class="justify-center rounded w-8 text-2xl font-bold    text-center cursor-pointer hoverClick"
 			on:click={() => {
 				activitySaveData.duration -= 15;
 				changeDuration();
@@ -39,7 +39,7 @@
 		<input
 			type="button"
 			value="+"
-			class="m-auto rounded w-8 text-2xl font-bold   pl-2   text-center cursor-pointer hover:bg-gray-400"
+			class=" rounded w-8 text-2xl font-bold     text-center cursor-pointer hoverClick"
 			on:click={() => {
 				activitySaveData.duration += 15;
 				changeDuration();

@@ -18,7 +18,7 @@ h2{
 }
 
  .hoverClick:hover {
-     -webkit-filter: brightness(80%);
+     -webkit-filter: brightness(120%);
  }
 
 
@@ -47,6 +47,9 @@ a, b ,*,.unselectable {
 .mrkCard {
    min-width: 10rem;
 }
+
+
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

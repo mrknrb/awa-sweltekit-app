@@ -38,9 +38,9 @@
 
 <div
 	class="mrkCard"
-	style="background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten;background-image: url({imageurl});"
+	style="background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten ;background-image: url({imageurl});"
 >
-	<div class="flex ">
+	<div class="flex " style="backdrop-filter: blur(2px);">
 		<h3 class="justify-center text-2xl text-center flex-grow">
 			{activityType}
 		</h3>
@@ -56,7 +56,7 @@
 					tempDataStoreReducers.draggingModeStartStop('');
 				}
 			}}
-			class="overflow-hidden border-t-gray-500 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl cursorSelect hover:bg-blue-300"
+			class="overflow-hidden  w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-blue-300"
 		>
 			{#if tempData.draggingActionId === ''}
 				<IoIosMenu />
@@ -72,13 +72,13 @@
 			on:click={() => {
 				saveDataMainStoreReducers.deleteActivity(activitySaveData.activityId);
 			}}
-			class="border-t-gray-500 w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow shadow-gray-700 active:shadow-2xl cursorSelect hover:bg-orange-600"
+			class=" w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-orange-600"
 		>
 			<IoIosClose />
 		</div>
 		<!-- { activitySaveData.activityId}-->
 	</div>
-	<div class="flex flex-col  ">
+	<div class="flex flex-col  " style="backdrop-filter: blur(2px);">
 		{#each ActivityStaticData.activitySettings as setting, i}
 			{#if setting.settingType === SettingsTypes.boolean}
 				<SettingBool

@@ -7,8 +7,8 @@
 		type="button"
 		value="Save"
 		class="bg-amber-400 h-10 w-10 hover:bg-amber-500 font-bold float-right"
-		on:click={() => {
-			saveDataMainStoreReducers.saveData();
+		on:click={async () => {
+			console.log(await saveDataMainStoreReducers.saveData());
 		}}
 	/>
 	<input

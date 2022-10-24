@@ -1,23 +1,19 @@
 <script lang="ts">
 	import ActivityGroup from './ActivityGroup.svelte';
 	import { globalStaticData } from '../Store/GlobalStaticData.js';
-	import {
-		storeTempData,
-		storeTempDataActual,
-		tempDataStoreReducers
-	} from '../Store/StoreTempData';
+	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
 
 	$: active = $storeTempData.activityPickerActive;
 	$: activeText = active ? 'fixed' : 'hidden';
 </script>
 
 <div
-	class="h-full   w-full bg-gray-500 bg-opacity-60 {activeText} "
+	class=" absolute  bg-gray-500 bg-opacity-60 {activeText} backdrop-blur-md z-50 w-full h-full "
 	on:click={() => {
 		tempDataStoreReducers.activityPickerActivate(false);
 	}}
 >
-	<div class="h-5/6 float-left overflow-auto absolute w-9/12 m-auto mt-10 left-0 right-0 ">
+	<div class="fixed h-5/6 float-left overflow-auto  m-auto mt-10 w-full max-w-max">
 		{#each globalStaticData.activityGroups as group, i}
 			<ActivityGroup groupData={group} />
 		{/each}

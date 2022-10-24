@@ -3,11 +3,11 @@ import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity.js';
 import { writable } from 'svelte/store';
 import { ActivityTypes } from '../Enums/ActivityTypes.js';
 import { OMF } from '../../../Egyebek/OMF';
+import { LifeStyleBasicData } from '../../Browser/Data/LifeStyleBasicData';
 
 let SaveDataDefault: SaveData_Main = {
-	_id: Math.random().toString(),
 	activityList: [],
-	saveName: undefined,
+	title: undefined,
 	earning: undefined,
 	incomeType: undefined
 };
@@ -25,6 +25,14 @@ saveDataMainStore.subscribe((value) => {
 });
 
 export abstract class saveDataMainStoreReducers {
+	static changeTitle(title: string) {
+		saveDataMainStore.update((value) => {
+			value.title = title;
+
+			return value;
+		});
+	}
+
 	static addActivity(activityType: ActivityTypes) {
 		saveDataMainStore.update((value) => {
 			value.activityList = [...value.activityList, new SaveData_Activity(activityType)];
@@ -41,15 +49,44 @@ export abstract class saveDataMainStoreReducers {
 			return value;
 		});
 	}
-	static saveData() {
-		if (!saveDataMainActual) return;
-		localStorage.setItem('awasave', JSON.stringify(saveDataMainActual));
+	static async saveData() {
+		//	if (!saveDataMainActual) return;
+		//	localStorage.setItem('awasave', JSON.stringify(saveDataMainActual));
+		//body: JSON.stringify(saveDataMainActual),
+		const response = await fetch('/api/save.json', {
+			method: 'post',
+			body: JSON.stringify(saveDataMainActual),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+		let data = await response.json();
+		console.log(data.DiagramId);
+		saveDataMainStore.update((value) => {
+			value._id = data.DiagramId;
+			return value;
+		});
+		return true;
 	}
 
-	static loadData() {
-		let data = localStorage.getItem('awasave');
-		if (!data) return;
-		saveDataMainStore.set(JSON.parse(data));
+	static async loadData(_id: string) {
+		console.log(_id);
+		const response = await fetch('/api/load.json', {
+			method: 'post',
+			body: _id,
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+		let responsejson = await response.json();
+		console.log(responsejson);
+		let data: SaveData_Main = responsejson.docData;
+		if (data) {
+			saveDataMainStore.update((value) => {
+				return data;
+			});
+		}
+		return true;
 	}
 
 	static settingChange(activityId: string, settingName: string, settingValue: string) {

@@ -3,11 +3,23 @@
 	import TopBar from '../Pages/Editor/Components/TopBar.svelte';
 	import ActivityPicker from '../Pages/Editor/Components/ActivityPicker.svelte';
 	import DiagramBody from '../Pages/Editor/Components/DiagramBody.svelte';
+	import { onMount } from 'svelte';
+	import { BrowserStoreReducers } from '../Pages/Browser/Store/BrowserStore';
+	import queryString from 'query-string';
+	import { saveDataMainStoreReducers } from '../Pages/Editor/Store/StoreSaveData';
+
+	onMount(async () => {
+		const parsed = queryString.parse(location.search);
+
+		if (parsed.id) {
+			await saveDataMainStoreReducers.loadData(JSON.stringify(parsed.id));
+		}
+	});
 </script>
 
 <TopBar />
 
-<div style="height: calc(100% - 50px) ;width: 100%" class="bg-gray-400">
+<div class="h-full max-h-full w-full max-w-full">
 	<ActivityPicker />
 	<DiagramBody />
 </div>

@@ -12,7 +12,7 @@
 		<ActivityCard activityType={data.activityType} activitySaveData={data} />
 	{/each}
 	<div
-		class="h-12 w-12 bg-blue-300 m-auto"
+		class=" w-12 bg-gray-300 float-left  hover:brightness-110  mrkCard opacity-60"
 		on:click={() => {
 			tempDataStoreReducers.activityPickerActivate(true);
 		}}
