@@ -35,7 +35,7 @@
 
 <header class="bg-amber-500 sticky">
 	<div style="height: 50px" class="flex flex-row">
-		<PageButton name="DIY LifeStyle" src="" />
+		<PageButton name="Freebird Academy" src="" />
 		<PageButton name="Browser" src="browser" />
 		<PageButton name="Editor" src="editor" />
 		<UserButton />
