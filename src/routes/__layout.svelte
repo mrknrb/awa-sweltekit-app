@@ -33,7 +33,7 @@
 	</style>
 </svelte:head>
 
-<header class="bg-blue-200 sticky">
+<header class="bg-emerald-500 sticky">
 	<div style="height: 50px" class="flex flex-row">
 		<PageButton name="Freebird Academy" src="" />
 		<PageButton name="Browser" src="browser" />
