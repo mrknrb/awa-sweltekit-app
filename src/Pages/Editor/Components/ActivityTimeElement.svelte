@@ -17,8 +17,8 @@
 <div
 	on:mouseenter
 	on:mouseleave
-	style="min-width:{nagyitasKalkulaloEredmeny}rem;width: {nagyitasKalkulaloEredmeny}rem"
-	class="h-8 bg-green-600 flex justify-center cent overflow-hidden border-r-4 {brighterOnHover()} "
+	style="min-height:{nagyitasKalkulaloEredmeny}rem;height: {nagyitasKalkulaloEredmeny}rem"
+	class="w-16 bg-green-600 flex justify-center cent overflow-hidden border-b-4 {brighterOnHover()} "
 >
 	<a class="text-center">{activitySaveData.activityType}</a>
 </div>

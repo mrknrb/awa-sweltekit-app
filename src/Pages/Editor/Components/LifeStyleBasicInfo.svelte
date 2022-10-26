@@ -4,7 +4,10 @@
 	import { onMount } from 'svelte';
 	import { BrowserStoreReducers } from '../../Browser/Store/BrowserStore';
 
-	$: title = $saveDataMainStore.title;
+	let title = '';
+	saveDataMainStore.subscribe((value) => {
+		title = value.title;
+	});
 </script>
 
 <DiagramTitle title="Basic Info" />
@@ -14,8 +17,8 @@
 	<input
 		type="text"
 		class="text-3xl"
-		value={title}
-		on:change={() => {
+		bind:value={title}
+		on:change={(event) => {
 			saveDataMainStoreReducers.changeTitle(title);
 		}}
 	/>

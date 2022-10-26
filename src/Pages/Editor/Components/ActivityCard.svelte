@@ -17,6 +17,7 @@
 	import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
 	export let activityType: ActivityTypes;
 	export let activitySaveData: SaveData_Activity = new SaveData_Activity(activityType);
+	export let activityNumber = 0;
 	$: ActivityStaticData = getActivityStaticDataByType(activityType);
 	$: SettingChange = (settingData: StaticData_Setting, optionData: string) => {
 		saveDataMainStoreReducers.settingChange(
@@ -41,6 +42,9 @@
 	style="background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten ;background-image: url({imageurl});"
 >
 	<div class="flex " style="backdrop-filter: blur(2px);">
+		<h3 class="justify-center text-2xl text-center flex-grow">
+			{activityNumber + 1}
+		</h3>
 		<h3 class="justify-center text-2xl text-center flex-grow">
 			{activityType}
 		</h3>
