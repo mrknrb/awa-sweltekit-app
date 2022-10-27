@@ -13,7 +13,6 @@
 	import SettingTime from './SettingsComps/SettingTime/SettingTime.svelte';
 	import { storeTempData, TempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import IoIosLogIn from 'svelte-icons/io/IoIosLogIn.svelte';
-	import { saveDataMainStore } from '../Store/StoreSaveData';
 	import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
 	export let activityType: ActivityTypes;
 	export let activitySaveData: SaveData_Activity = new SaveData_Activity(activityType);
@@ -30,19 +29,41 @@
 	$: getSettingSaveFunc = (settingName: string) => {
 		return OMF.get(activitySaveData.settings, settingName);
 	};
-	let tempData: TempData;
-	storeTempData.subscribe((tempData2) => {
-		tempData = tempData2;
-	});
+	$: highlighted = () => {
+		if ($storeTempData.highlightedActivitityNumber === activityNumber) {
+			return 'backdrop-brightness-110 border-t-amber-600 border-t-4 ';
+		} else {
+			return 'backdrop-brightness-100';
+		}
+	};
+
 	$: imageurl = 'images/' + activityType + '.jpg';
+	let foDiv: HTMLDivElement;
+
+	$: topScroll = () => {
+		return foDiv.offsetTop - foDiv.parentElement.offsetTop - foDiv.parentElement.scrollTop;
+	};
 </script>
 
 <div
-	class="mrkCard"
-	style="background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten ;background-image: url({imageurl});"
+	bind:this={foDiv}
+	class="mrkCard {highlighted()}   border-transparent box-border border-t-4 border-gray-400 border-transparent"
+	style="  background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten ;background-image: url({imageurl});"
+	on:mouseenter={() => {
+		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+	}}
+	on:touchstart={() => {
+		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+	}}
+	on:mouseleave={() => {
+		tempDataStoreReducers.highlightActivity();
+	}}
+	on:dragleave={() => {
+		tempDataStoreReducers.highlightActivity();
+	}}
 >
 	<div class="flex " style="backdrop-filter: blur(2px);">
-		<h3 class="justify-center text-2xl text-center flex-grow">
+		<h3 class=" justify-center text-2xl text-center flex-grow">
 			{activityNumber + 1}
 		</h3>
 		<h3 class="justify-center text-2xl text-center flex-grow">
@@ -50,11 +71,11 @@
 		</h3>
 		<div
 			on:click={() => {
-				if (tempData.draggingActionId === '')
+				if ($storeTempData.draggingActionId === '')
 					tempDataStoreReducers.draggingModeStartStop(activitySaveData.activityId);
 				else {
 					saveDataMainStoreReducers.changeActivityOrder(
-						tempData.draggingActionId,
+						$storeTempData.draggingActionId,
 						activitySaveData.activityId
 					);
 					tempDataStoreReducers.draggingModeStartStop('');
@@ -62,9 +83,9 @@
 			}}
 			class="overflow-hidden  w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-blue-300"
 		>
-			{#if tempData.draggingActionId === ''}
+			{#if $storeTempData.draggingActionId === ''}
 				<IoIosMenu />
-			{:else if tempData.draggingActionId === activitySaveData.activityId}
+			{:else if $storeTempData.draggingActionId === activitySaveData.activityId}
 				<IoIosMenu />
 			{:else}
 				<div class="bg-amber-400">
