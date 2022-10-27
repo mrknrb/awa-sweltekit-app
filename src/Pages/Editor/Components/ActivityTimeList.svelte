@@ -11,7 +11,6 @@
 	let ebrenletIdo = 16 * 60;
 	let igazito = 0.05;
 
-	let foDiv: HTMLDivElement;
 	$: nagyitasKalkulaloEredmeny = nagyitasKalkulalo(ebrenletIdo, nagyitas, igazito);
 
 	$: IdoMertekLista = IdoListaGeneralo(
@@ -24,7 +23,7 @@
 <!--
 <DiagramTitle title="Time" />-->
 <div class="   ">
-	<!--	<div>
+	<!--<div>
 		<input
 			type="button"
 			class="bg-amber-100 text-3xl w-8"
@@ -42,11 +41,7 @@
 			}}
 		/>
 	</div>-->
-	<div
-		class=" h-full  flex mb-2 overflow-hidden flex-row"
-		style="white-space:nowrap;scroll-behavior: smooth;"
-		bind:this={foDiv}
-	>
+	<div class=" h-full  flex mb-2 overflow-auto flex-row" style="white-space:nowrap">
 		<div
 			class="  h-5  bg-blue-700 flex-col flex flex-col "
 			style=" min-height:{nagyitasKalkulaloEredmeny}rem;height:{nagyitasKalkulaloEredmeny}rem;"
@@ -68,6 +63,5 @@
 				<ActivityTimeElement activitySaveData={data} {nagyitas} {igazito} activityNumber={i} />
 			{/each}
 		</div>
-		<div class="  flex-col flex  " style="height: 10000px" />
 	</div>
 </div>

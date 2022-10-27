@@ -38,28 +38,22 @@
 	};
 
 	$: imageurl = 'images/' + activityType + '.jpg';
-	let foDiv: HTMLDivElement;
-
-	$: topScroll = () => {
-		return foDiv.offsetTop - foDiv.parentElement.offsetTop - foDiv.parentElement.scrollTop;
-	};
 </script>
 
 <div
-	bind:this={foDiv}
 	class="mrkCard {highlighted()}   border-transparent box-border border-t-4 border-gray-400 border-transparent"
 	style="  background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten ;background-image: url({imageurl});"
 	on:mouseenter={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+		tempDataStoreReducers.highlightActivity(activityNumber);
 	}}
 	on:touchstart={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+		tempDataStoreReducers.highlightActivity(activityNumber);
 	}}
 	on:touchend={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+		tempDataStoreReducers.highlightActivity(activityNumber);
 	}}
 	on:mouseleave={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+		tempDataStoreReducers.highlightActivity(undefined);
 	}}
 >
 	<div class="flex " style="backdrop-filter: blur(2px);">

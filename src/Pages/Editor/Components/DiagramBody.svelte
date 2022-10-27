@@ -5,7 +5,12 @@
 </script>
 
 <div class=" p-4 left-0 right-0 overflow-auto">
-	<LifeStyleBasicInfo />
 	<ActivityCardList />
+	<LifeStyleBasicInfo />
+	<LifeStyleBasicInfo />
+	<LifeStyleBasicInfo />
+	<LifeStyleBasicInfo />
+	<LifeStyleBasicInfo />
+	<LifeStyleBasicInfo />
 	<LifeStyleBasicInfo />
 </div>

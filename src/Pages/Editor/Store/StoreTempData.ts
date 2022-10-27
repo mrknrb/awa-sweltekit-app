@@ -5,15 +5,13 @@ import { saveDataMainStore } from './StoreSaveData';
 let TempDataDefault: TempData = {
 	draggingActionId: '',
 	activityPickerActive: false,
-	highlightedActivitityNumber: undefined,
-	highlightedActivitityOffsetTop: undefined
+	highlightedActivitityNumber: undefined
 };
 
 export type TempData = {
 	draggingActionId: string;
 	activityPickerActive: boolean;
 	highlightedActivitityNumber: number | undefined;
-	highlightedActivitityOffsetTop: number | undefined;
 };
 
 export let storeTempData = writable(TempDataDefault, () => {
@@ -35,11 +33,9 @@ export abstract class tempDataStoreReducers {
 		});
 	}
 
-	static highlightActivity(number?: number, offsetTop?: number) {
-		console.log(offsetTop);
+	static highlightActivity(number?: number) {
 		storeTempData.update((value) => {
 			value.highlightedActivitityNumber = number;
-			value.highlightedActivitityOffsetTop = offsetTop;
 			return value;
 		});
 	}

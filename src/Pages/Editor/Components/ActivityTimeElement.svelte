@@ -19,16 +19,6 @@
 			return 'backdrop-brightness-110 ';
 		}
 	};
-	let scroll = () => {
-		let scrollheight =
-			foDiv.offsetTop -
-			foDiv.parentElement.parentElement.offsetTop -
-			$storeTempData.highlightedActivitityOffsetTop;
-		console.log(scrollheight);
-		foDiv.parentElement.parentElement.scrollTo(0, scrollheight);
-		//	console.log(elementOffsetTopEvent.detail);
-		//	console.log(foDiv.offsetTop);
-	};
 
 	$: imageurl = 'images/' + activitySaveData.activityType + '.jpg';
 	let foDiv: HTMLDivElement;
