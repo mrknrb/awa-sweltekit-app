@@ -2,10 +2,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 import { doc, setDoc } from 'firebase/firestore';
 import firebaseApp from '../fb';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import firebase from 'firebase/compat';
-import Firestore = firebase.firestore.Firestore;
 import { SaveData_Main } from '../../Pages/Editor/Data/SaveData/SaveData_Main';
-// Add a new document in collection "cities"
 
 export const post: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);
