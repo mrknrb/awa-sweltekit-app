@@ -52,6 +52,12 @@
 	on:mouseenter={() => {
 		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
 	}}
+	on:touchstart={() => {
+		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+	}}
+	on:touchend={() => {
+		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
+	}}
 	on:mouseleave={() => {
 		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
 	}}
