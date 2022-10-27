@@ -61,9 +61,6 @@
 	on:mouseleave={() => {
 		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
 	}}
-	on:touchmove={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
-	}}
 >
 	<div class="flex " style="backdrop-filter: blur(2px);">
 		<h3 class=" justify-center text-2xl text-center flex-grow">

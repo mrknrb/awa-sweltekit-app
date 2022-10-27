@@ -44,7 +44,7 @@
 	</div>-->
 	<div
 		class=" h-full  flex mb-2 overflow-hidden flex-row"
-		style="white-space:nowrap;"
+		style="white-space:nowrap;scroll-behavior: smooth;"
 		bind:this={foDiv}
 	>
 		<div
