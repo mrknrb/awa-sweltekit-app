@@ -52,14 +52,11 @@
 	on:mouseenter={() => {
 		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
 	}}
-	on:touchstart={() => {
+	on:mouseleave={() => {
 		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
 	}}
-	on:mouseleave={() => {
-		tempDataStoreReducers.highlightActivity();
-	}}
-	on:dragleave={() => {
-		tempDataStoreReducers.highlightActivity();
+	on:touchmove={() => {
+		tempDataStoreReducers.highlightActivity(activityNumber, topScroll());
 	}}
 >
 	<div class="flex " style="backdrop-filter: blur(2px);">
