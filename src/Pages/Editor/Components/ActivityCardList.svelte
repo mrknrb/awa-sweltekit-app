@@ -5,25 +5,20 @@
 	import { tempDataStoreReducers } from '../Store/StoreTempData';
 	import DiagramTitle from './DiagramTitle.svelte';
 	import ActivityTimeList from './ActivityTimeList.svelte';
+	import ActivityPicker from './ActivityPicker.svelte';
 
 	let firstVisibleActivityNumber = 0;
 	let firstVisibleActivityNumberCalculator = (scrollHeight: number) => {};
 </script>
 
-<!--<DiagramTitle title="Activity list" />-->
 <div class="flex flex-row  " style="max-height: 70vh;height: 70vh">
 	<ActivityTimeList />
 	<div class="   flex flex-wrap overflow-auto" style="">
 		{#each $saveDataMainStore.activityList as data, i}
 			<ActivityCard activityType={data.activityType} activitySaveData={data} activityNumber={i} />
 		{/each}
-		<div
-			class=" w-12 bg-gray-300 float-left  hover:brightness-110  mrkCard opacity-60"
-			on:click={() => {
-				tempDataStoreReducers.activityPickerActivate(true);
-			}}
-		>
-			<MdAdd />
+		<div class=" w-12  float-left   mrkCard ">
+			<ActivityPicker />
 		</div>
 	</div>
 </div>

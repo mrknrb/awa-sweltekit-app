@@ -1,7 +1,6 @@
 <!--<link href="https://unpkg.com/mono-icons@1.3.1/iconfont/icons.css" rel="stylesheet">-->
 <script lang="ts">
 	import TopBar from '../Pages/Editor/Components/TopBar.svelte';
-	import ActivityPicker from '../Pages/Editor/Components/ActivityPicker.svelte';
 	import DiagramBody from '../Pages/Editor/Components/DiagramBody.svelte';
 	import { onMount } from 'svelte';
 	import { BrowserStoreReducers } from '../Pages/Browser/Store/BrowserStore';
@@ -20,6 +19,5 @@
 <TopBar />
 
 <div class="h-full max-h-full w-full max-w-full">
-	<ActivityPicker />
 	<DiagramBody />
 </div>

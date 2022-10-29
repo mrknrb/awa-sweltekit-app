@@ -1,29 +1,18 @@
 export enum ActivityTypes {
-    //essential
-    eating = "eating",
-    housing = "housing",
-    electricity="electricity",
-    water="water",
-    otherHouseHoldExp="otherHouseHoldExp",
-    homeCleaning="homeCleaning",
-    homeRepairing="homeRepairing",
-    selfCleaning="selfCleaning",
-    personalCare="personalCare",
-    clothing="clothing",
-    insurances="insurances",
-    timeWasted="timeWasted",//bevasarlas, tomegkozlekedes stb.
+	//essential
+	housing = 'housing',
+	eating = 'eating',
+	personalCare = 'personalCare',
+	insurances = 'insurances',
 
-//relaxing
-    relaxing="relaxing",
-
-// create
-    create="create",
-//health
-    sport="sport",
-
-
-    reading = "reading",
-    MovieWatching = "MovieWatching"
-
-
+	goingOut = 'goingOut',
+	pleasure = 'pleasure',
+	relaxing = 'relaxing',
+	create = 'create',
+	sport = 'sport',
+	altruism = 'altruism',
+	status = 'status',
+	travel = 'travel',
+	love = 'love',
+	knowledge = 'knowledge'
 }
