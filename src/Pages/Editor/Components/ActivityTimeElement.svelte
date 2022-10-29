@@ -32,7 +32,7 @@
 		on:mouseleave={() => {
 			tempDataStoreReducers.highlightActivity(undefined);
 		}}
-		style="min-height:{nagyitasKalkulaloEredmeny}rem;height: {nagyitasKalkulaloEredmeny}rem ;background-image: url({imageurl});background-blend-mode: lighten ;background-repeat: no-repeat ;background-size:180%;background-position: right top"
+		style="min-height:{nagyitasKalkulaloEredmeny}rem;height: {nagyitasKalkulaloEredmeny}rem ;background-image: url({imageurl});background-repeat: no-repeat ;background-size:180%;background-position: right top"
 		class="w-16 flex  justify-center cent overflow-hidden bg-gray-300 bg-opacity-60 box-border {highlighted()} "
 	>
 		<div style="/* backdrop-filter:blur(2px) */;width: 100%;height: 100%">

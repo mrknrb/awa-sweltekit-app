@@ -33,11 +33,20 @@
 	</style>
 </svelte:head>
 
-<header class="bg-emerald-500 sticky">
-	<div style="height: 50px" class="flex flex-row">
-		<PageButton name="Freebird Academy" src="" />
-		<PageButton name="Browser" src="browser" />
-		<PageButton name="Editor" src="editor" />
+<header class=" sticky">
+	<div style="height: 50px" class="  flex flex-row overflow-hidden">
+		<div
+			class="h-full  w-24  flex flex-row justify-center flex-wrap content-center hover:backdrop-brightness-110"
+			on:click={() => {
+				window.open('/', '_self');
+			}}
+		>
+			<img src="images/logo3.png" class="" />
+		</div>
+
+		<PageButton name="Life Browser" src="browser" />
+		<PageButton name="New Life" src="editor" />
+		<PageButton name="Handbook" src="handbook" />
 		<UserButton />
 	</div>
 </header>

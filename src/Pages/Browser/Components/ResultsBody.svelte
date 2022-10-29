@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class="h-full hoverClick w-full ">
+<div class="h-full  w-full ">
 	{#each lifeStyleList as lifeStyle, i}
 		<Result lifeStyleBasicData={lifeStyleList[i]} />
 	{/each}
