@@ -24,7 +24,7 @@
 	let foDiv: HTMLDivElement;
 </script>
 
-<div bind:this={foDiv} style="  background-image: linear-gradient(#bbbbbb, #858585)">
+<div bind:this={foDiv} style=" /* background-image: linear-gradient(#bbbbbb, #858585)*/">
 	<div
 		on:mouseenter={() => {
 			tempDataStoreReducers.highlightActivity(activityNumber);
@@ -35,7 +35,7 @@
 		style="min-height:{nagyitasKalkulaloEredmeny}rem;height: {nagyitasKalkulaloEredmeny}rem ;background-image: url({imageurl});background-blend-mode: lighten ;background-repeat: no-repeat ;background-size:180%;background-position: right top"
 		class="w-16 flex  justify-center cent overflow-hidden bg-gray-300 bg-opacity-60 box-border {highlighted()} "
 	>
-		<div style=" backdrop-filter:blur(2px) ;width: 100%;height: 100%">
+		<div style="/* backdrop-filter:blur(2px) */;width: 100%;height: 100%">
 			<b class="text-center">{activitySaveData.activityType}</b>
 		</div>
 	</div>

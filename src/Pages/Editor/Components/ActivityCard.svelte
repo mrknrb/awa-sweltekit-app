@@ -42,7 +42,7 @@
 
 <div
 	class="mrkCard {highlighted()}   border-transparent box-border border-t-4 border-gray-400 border-transparent"
-	style="  background-size: 100%;background-repeat: no-repeat ;background-blend-mode: lighten ;background-image: url({imageurl});"
+	style="  background-size: 100%;background-repeat: no-repeat ;/*background-blend-mode: lighten ;*/background-image: url({imageurl});"
 	on:mouseenter={() => {
 		tempDataStoreReducers.highlightActivity(activityNumber);
 	}}
@@ -56,7 +56,7 @@
 		tempDataStoreReducers.highlightActivity(undefined);
 	}}
 >
-	<div class="flex " style="backdrop-filter: blur(2px);">
+	<div class="flex " style="/*backdrop-filter: blur(2px);*/">
 		<h3 class=" justify-center text-2xl text-center flex-grow">
 			{activityNumber + 1}
 		</h3>
@@ -97,7 +97,7 @@
 		</div>
 		<!-- { activitySaveData.activityId}-->
 	</div>
-	<div class="flex flex-col  " style="backdrop-filter: blur(2px);">
+	<div class="flex flex-col  " style="/*backdrop-filter: blur(2px);*/">
 		{#each ActivityStaticData.activitySettings as setting, i}
 			{#if setting.settingType === SettingsTypes.boolean}
 				<SettingBool
