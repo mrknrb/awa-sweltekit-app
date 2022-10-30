@@ -15,7 +15,7 @@
 </script>
 
 <span
-	class="mrkCard active:shadow-2xl hoverClick"
+	class=" min-w-fit hover:backdrop-brightness-105 hoverClick"
 	on:click={() => {
 		saveDataMainStoreReducers.addActivity(activityType);
 	}}

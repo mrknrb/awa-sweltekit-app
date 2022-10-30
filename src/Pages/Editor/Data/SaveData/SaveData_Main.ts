@@ -5,6 +5,8 @@ export interface SaveData_Main {
 	_id?: string;
 	title?: string;
 	earning?: number;
+	sleepDuration?: number;
+	workDuration?: number;
 	incomeType?: IncomeTypes;
 	activityList: SaveData_Activity[];
 }

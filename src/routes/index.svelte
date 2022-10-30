@@ -1,5 +1,5 @@
 <div class="flex  flex-col content-center items-center">
-	<img src="images/logo2.png" class="w-52" />
+	<img src="images/logo4.png" class="w-52" />
 
 	<h2>
 		The FreeBird Circle is a community, which is bound by our common interest for freedom, creation

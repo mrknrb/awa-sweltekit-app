@@ -3,14 +3,10 @@
 	import { nagyitasKalkulalo } from '../../../Egyebek/NagyitasKalkulalo';
 	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import { createEventDispatcher } from 'svelte';
+	import { MoneyTimeFunctions } from '../../../Functions/MoneyTimeFunctions';
 
-	export let nagyitas;
-	export let igazito;
-	export let hovered = false;
 	export let activitySaveData: SaveData_Activity;
 	export let activityNumber = 0;
-	$: nagyitasKalkulaloEredmeny = nagyitasKalkulalo(activitySaveData.duration, nagyitas, igazito);
-
 	$: highlighted = () => {
 		if ($storeTempData.highlightedActivitityNumber === activityNumber) {
 			scroll();
@@ -20,11 +16,12 @@
 		}
 	};
 
+	$: WorkMinutes = MoneyTimeFunctions.costToWorkMinutes(10 / 60, activitySaveData.cost);
+
 	$: imageurl = 'images/' + activitySaveData.activityType + '.jpg';
-	let foDiv: HTMLDivElement;
 </script>
 
-<div bind:this={foDiv} style=" /* background-image: linear-gradient(#bbbbbb, #858585)*/">
+<div style="">
 	<div
 		on:mouseenter={() => {
 			tempDataStoreReducers.highlightActivity(activityNumber);
@@ -32,10 +29,11 @@
 		on:mouseleave={() => {
 			tempDataStoreReducers.highlightActivity(undefined);
 		}}
-		style="min-height:{nagyitasKalkulaloEredmeny}rem;height: {nagyitasKalkulaloEredmeny}rem ;background-image: url({imageurl});background-repeat: no-repeat ;background-size:180%;background-position: right top"
-		class="w-16 flex  justify-center cent overflow-hidden bg-gray-300 bg-opacity-60 box-border {highlighted()} "
+		style="height: {WorkMinutes *
+			2}px; background-repeat: no-repeat ;background-size:180%;background-position: right top; background-image: linear-gradient(#bbbbbb, #858585)"
+		class="w-16 flex  justify-center cent overflow-hidden bg-gray-300  box-border {highlighted()} "
 	>
-		<div style="/* backdrop-filter:blur(2px) */;width: 100%;height: 100%">
+		<div style="width: 100%;height: 100%">
 			<b class="text-center">{activitySaveData.activityType}</b>
 		</div>
 	</div>

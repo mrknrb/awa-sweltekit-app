@@ -143,4 +143,34 @@ export abstract class saveDataMainStoreReducers {
 			return value;
 		});
 	}
+	static changeCost(activityId: string, cost: number) {
+		saveDataMainStore.update((value) => {
+			let activity = value.activityList.find((value1) => {
+				return value1.activityId == activityId;
+			});
+			if (!activity) return value;
+			activity.cost = cost;
+
+			return value;
+		});
+	}
+	static changeActivity(
+		activityId: string,
+		activityBackup: (saveData: SaveData_Activity) => SaveData_Activity
+	) {
+		saveDataMainStore.update((value) => {
+			let activity = value.activityList.find((value1) => {
+				return value1.activityId == activityId;
+			});
+			if (!activity) return value;
+
+			activity = activityBackup(activity);
+
+			return value;
+		});
+	}
+
+	static changeSave(saveBackup: (saveData: SaveData_Main) => SaveData_Main) {
+		saveDataMainStore.update(saveBackup);
+	}
 }

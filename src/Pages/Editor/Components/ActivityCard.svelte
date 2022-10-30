@@ -14,6 +14,7 @@
 	import { storeTempData, TempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import IoIosLogIn from 'svelte-icons/io/IoIosLogIn.svelte';
 	import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
+	import SettingCost from './SettingsComps/SettingCost/SettingCost.svelte';
 	export let activityType: ActivityTypes;
 	export let activitySaveData: SaveData_Activity = new SaveData_Activity(activityType);
 	export let activityNumber = 0;
@@ -128,5 +129,7 @@
 		{#if ActivityStaticData.hasTime === true}
 			<SettingTime {activitySaveData} {ActivityStaticData} />
 		{/if}
+
+		<SettingCost {activitySaveData} {ActivityStaticData} />
 	</div>
 </div>

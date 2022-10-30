@@ -5,26 +5,28 @@
 
 	export let ActivityStaticData: StaticData_Activity;
 	export let activitySaveData: SaveData_Activity;
-	let duration = 0;
-	if (typeof activitySaveData?.duration === 'number') {
-		duration = activitySaveData?.duration;
+
+	let cost = 0;
+
+	if (typeof activitySaveData?.cost === 'number') {
+		cost = activitySaveData?.cost;
 	}
-	let changeDuration = () => {
+	let changeCost = () => {
 		saveDataMainStoreReducers.changeActivity(activitySaveData.activityId, (saveData) => {
-			saveData.duration = duration;
+			saveData.cost = cost;
 			return saveData;
 		});
 	};
 </script>
 
 <div class="flex flex-col justify-between w-full grow ">
-	<b class=" ml-2">Duration</b>
+	<b class=" ml-2">Cost</b>
 	<div class="flex flex-row justify-between w-full grow ">
 		<input
 			type="number"
-			bind:value={duration}
+			bind:value={cost}
 			on:keyup={() => {
-				changeDuration();
+				changeCost();
 			}}
 			class="w-20 bg-transparent pl-4 font-bold rounded"
 		/>
@@ -33,8 +35,8 @@
 			value="-"
 			class="justify-center rounded w-8 text-2xl font-bold    text-center cursor-pointer hoverClick"
 			on:click={() => {
-				duration -= 15;
-				changeDuration();
+				cost -= 5;
+				changeCost();
 			}}
 		/>
 		<input
@@ -42,8 +44,8 @@
 			value="+"
 			class=" rounded w-8 text-2xl font-bold     text-center cursor-pointer hoverClick"
 			on:click={() => {
-				duration += 15;
-				changeDuration();
+				cost += 5;
+				changeCost();
 			}}
 		/>
 	</div>

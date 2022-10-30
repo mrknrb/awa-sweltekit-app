@@ -6,7 +6,7 @@
 	$: active = $storeTempData.activityPickerActive;
 </script>
 
-<div style="display: flex;justify-content:center ;flex-wrap: wrap;flex-direction: row">
+<div style="display: flex;justify-content:center ;flex-wrap: wrap;flex-direction: column">
 	{#each globalStaticData.activities as activity, i}
 		<ActivityPickerCard activityType={activity.activityType} />
 	{/each}

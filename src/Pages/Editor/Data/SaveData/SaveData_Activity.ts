@@ -6,6 +6,7 @@ export class SaveData_Activity {
 	activityId = Math.random().toString();
 	activityType: ActivityTypes;
 	duration = 0;
+	cost = 0;
 	settings: OMap<string> = OMF.create();
 
 	constructor(activityType: ActivityTypes) {
