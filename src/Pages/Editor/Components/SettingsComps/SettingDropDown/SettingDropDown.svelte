@@ -18,7 +18,7 @@
 <b class="ml-2">{settingStaticData.settingName}</b>
 <div class="w-full mt-1 mb-1  bg">
 	<div
-		class="hoverClick bg-gray-200 bg-opacity-40 cursorSelect  w-full p-0.5 flex flex-row justify-between
+		class="ActivityCardElem  w-full p-0.5 flex flex-row justify-between
 		  shadow shadow-gray-700 "
 		on:click={() => {
 			isShowing = !isShowing;

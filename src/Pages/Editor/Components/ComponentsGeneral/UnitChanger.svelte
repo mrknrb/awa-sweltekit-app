@@ -14,9 +14,11 @@
 </script>
 
 <select
+	style="
+  -webkit-appearance: none;"
 	name="cars"
 	id="cars"
-	class="font-bold bg-transparent cursor-pointer"
+	class="font-bold ActivityCardElem "
 	bind:value
 	on:change={() => {
 		changed();

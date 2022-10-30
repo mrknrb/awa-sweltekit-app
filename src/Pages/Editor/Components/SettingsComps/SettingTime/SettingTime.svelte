@@ -40,7 +40,7 @@
 
 <div class="flex flex-col justify-between w-full grow ">
 	<b class=" ml-2">Duration</b>
-	<div class="flex flex-row justify-between w-full grow ">
+	<div class="flex flex-row  w-full grow">
 		<input
 			type="text"
 			pattern="[0-9]{2}:[0-9]{2}"
@@ -48,7 +48,7 @@
 			on:keyup={() => {
 				changeTime();
 			}}
-			class="w-16 bg-transparent pl-4 font-bold rounded"
+			class="w-14 bg-transparent  pl-2 font-bold  ActivityCardElem"
 		/>
 
 		<UnitChanger
@@ -61,7 +61,7 @@
 		<input
 			type="button"
 			value="-"
-			class="justify-center rounded w-8 text-2xl font-bold    text-center cursor-pointer hoverClick"
+			class="justify-center  w-8 text-2xl font-bold    text-center ActivityCardElem"
 			on:click={() => {
 				basicTime -= 15;
 				changeTime();
@@ -70,7 +70,7 @@
 		<input
 			type="button"
 			value="+"
-			class=" rounded w-8 text-2xl font-bold     text-center cursor-pointer hoverClick"
+			class="  w-8 text-2xl font-bold     text-center ActivityCardElem"
 			on:click={() => {
 				basicTime += 15;
 				changeTime();

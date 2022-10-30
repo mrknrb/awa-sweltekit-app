@@ -13,7 +13,7 @@
 
 <div class="flex flex-row  " style="max-height: 70vh;height: 70vh">
 	<ActivityTimeList />
-	<div class="   flex flex-wrap overflow-auto" style="">
+	<div class="   flex flex-wrap overflow-auto content-start" style="">
 		{#each $saveDataMainStore.activityList as data, i}
 			<ActivityCard activityType={data.activityType} activitySaveData={data} activityNumber={i} />
 		{/each}

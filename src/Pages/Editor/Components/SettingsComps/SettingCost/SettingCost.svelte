@@ -58,14 +58,14 @@
 
 <div class="flex flex-col justify-between w-full grow ">
 	<b class=" ml-2">Cost</b>
-	<div class="flex flex-row justify-between w-full grow ">
+	<div class="flex flex-row  w-full grow ">
 		<input
 			type="number"
 			value={displayedMoney}
 			on:keyup={() => {
 				changeCost();
 			}}
-			class="w-20 bg-transparent pl-4 font-bold rounded"
+			class="w-14 bg-transparent pl-2 font-bold  ActivityCardElem"
 		/>
 		<input
 			type="text"
@@ -73,7 +73,7 @@
 			on:keyup={() => {
 				changeCost();
 			}}
-			class="w-20 bg-transparent pl-4 font-bold rounded"
+			class="w-14 bg-transparent  font-bold  ActivityCardElem"
 		/>
 		<UnitChanger
 			unitsData={timeUnitsArray}
@@ -86,7 +86,7 @@
 		<input
 			type="button"
 			value="-"
-			class="justify-center rounded w-8 text-2xl font-bold    text-center cursor-pointer hoverClick"
+			class="justify-center  w-8 text-2xl font-bold    text-center ActivityCardElem"
 			on:click={() => {
 				basicCost -= 1;
 				changeCost();
@@ -95,7 +95,7 @@
 		<input
 			type="button"
 			value="+"
-			class=" rounded w-8 text-2xl font-bold     text-center cursor-pointer hoverClick"
+			class=" rounded w-8 text-2xl font-bold     text-center ActivityCardElem"
 			on:click={() => {
 				basicCost += 1;
 				changeCost();
