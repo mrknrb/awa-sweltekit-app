@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { saveDataMainStoreReducers } from '../../../Store/StoreSaveData';
+	import { saveDataMainStore, saveDataMainStoreReducers } from '../../../Store/StoreSaveData';
 	import { SaveData_Activity } from '../../../Data/SaveData/SaveData_Activity';
 	import { StaticData_Activity } from '../../../Data/StaticData/StaticDataTypes/StaticData_Activity';
 	import { timeUnitsArray } from '../../../../../Egyebek/TimeUnit/timeUnitsArray';
@@ -8,6 +8,7 @@
 	import { TimeFunctions } from '../../../../../Functions/TimeFunctions';
 	import { moneyUnitsArray } from '../../../../../Egyebek/MoneyUnit/MoneyUnitsArray';
 	import { MoneyUnits } from '../../../../../Egyebek/MoneyUnit/MoneyUnits';
+	import { MoneyTimeFunctions } from '../../../../../Functions/MoneyTimeFunctions';
 
 	export let ActivityStaticData: StaticData_Activity;
 	export let activitySaveData: SaveData_Activity;
@@ -34,6 +35,10 @@
 
 	let MoneyUnitChangeID = moneyUnitsArray[0]._id;
 	$: MoneyUnitChangeID = activitySaveData?.moneyTimeUnit;
+
+	$: displayedWorkTime = TimeFunctions.MinuteToHourMinute(
+		MoneyTimeFunctions.moneyToWorkMinutes($saveDataMainStore.earnings, displayedMoney)
+	);
 
 	let changeMoneyUnit = (unit: MoneyUnits) => {
 		MoneyUnitChangeID = unit;
@@ -62,6 +67,14 @@
 			}}
 			class="w-20 bg-transparent pl-4 font-bold rounded"
 		/>
+		<input
+			type="text"
+			value={displayedWorkTime}
+			on:keyup={() => {
+				changeCost();
+			}}
+			class="w-20 bg-transparent pl-4 font-bold rounded"
+		/>
 		<UnitChanger
 			unitsData={timeUnitsArray}
 			value={TimeUnitChangeID}
@@ -69,19 +82,13 @@
 				changeMoneyTimeUnit(event.detail.value);
 			}}
 		/>
-		<UnitChanger
-			unitsData={moneyUnitsArray}
-			value={TimeUnitChangeID}
-			on:changed={(event) => {
-				changeMoneyUnit(event.detail.value);
-			}}
-		/>
+
 		<input
 			type="button"
 			value="-"
 			class="justify-center rounded w-8 text-2xl font-bold    text-center cursor-pointer hoverClick"
 			on:click={() => {
-				basicCost -= 5;
+				basicCost -= 1;
 				changeCost();
 			}}
 		/>
@@ -90,7 +97,7 @@
 			value="+"
 			class=" rounded w-8 text-2xl font-bold     text-center cursor-pointer hoverClick"
 			on:click={() => {
-				basicCost += 5;
+				basicCost += 1;
 				changeCost();
 			}}
 		/>

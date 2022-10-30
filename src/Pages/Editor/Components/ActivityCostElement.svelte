@@ -3,6 +3,7 @@
 	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import { createEventDispatcher } from 'svelte';
 	import { MoneyTimeFunctions } from '../../../Functions/MoneyTimeFunctions';
+	import { saveDataMainStore } from '../Store/StoreSaveData';
 
 	export let activitySaveData: SaveData_Activity;
 	export let activityNumber = 0;
@@ -15,8 +16,11 @@
 		}
 	};
 
-	$: WorkMinutes = MoneyTimeFunctions.costToWorkMinutes(10 / 60, activitySaveData.money);
-
+	//	$: WorkMinutes = MoneyTimeFunctions.moneyToWorkMinutes(10 / 60, activitySaveData.money);
+	$: WorkMinutes = MoneyTimeFunctions.moneyToWorkMinutes(
+		$saveDataMainStore.earnings,
+		activitySaveData.money
+	);
 	$: imageurl = 'images/' + activitySaveData.activityType + '.jpg';
 </script>
 
