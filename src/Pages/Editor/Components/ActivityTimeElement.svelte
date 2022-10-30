@@ -25,12 +25,11 @@
 		on:mouseleave={() => {
 			tempDataStoreReducers.highlightActivity(undefined);
 		}}
-		style="height: {activitySaveData.time *
-			2}px;background-repeat: no-repeat ;background-size:180%;background-position: right top; background-image: linear-gradient(#bbbbbb, #858585)"
-		class="w-16 flex  justify-center cent overflow-hidden bg-gray-300 bg-opacity-60 box-border {highlighted()} "
+		style="height: {activitySaveData.time}px;background-repeat: no-repeat ;background-size:180%;background-position: right top; background-image: linear-gradient(#bbbbbb, #858585)"
+		class=" flex  justify-center cent overflow-hidden bg-gray-300 bg-opacity-60 box-border {highlighted()} "
 	>
 		<div style="width: 100%;height: 100%;overflow: hidden">
-			<b class="text-center">{activitySaveData.activityType}</b>
+			<b class="text-center text-sm">{activitySaveData.activityType}</b>
 		</div>
 	</div>
 </div>

@@ -3,10 +3,11 @@
 	import ActivityCostElement from './ActivityCostElement.svelte';
 	import ActivityTimeElement from './ActivityTimeElement.svelte';
 	import { TimeFunctions } from '../../../Functions/TimeFunctions';
+	import { getActivityStaticDataByType } from '../Store/GlobalStaticData';
 
 	let idolista: number[] = [];
-	for (let i = 0; i < 24 * 4; i++) {
-		idolista.push(i * 15);
+	for (let i = 0; i < 24 * 2; i++) {
+		idolista.push(i * 30);
 	}
 	//yx ----------------------------   30pxel 15 perc szabvanyosan
 </script>
@@ -18,7 +19,7 @@
 		<div class="  h-5  bg-blue-700 flex-col flex flex-col ">
 			{#each idolista as idoMertek, i}
 				<div
-					style="border-right: #a503e5; min-height: 30px;height: 50px "
+					style="border-right: #a503e5; min-height: 30px;height: 30px "
 					class="bg-gray-500 box-border border-t overflow-hidden"
 				>
 					{TimeFunctions.MinuteToHourMinute(idoMertek)}
@@ -26,12 +27,14 @@
 			{/each}
 		</div>
 
-		<div class=" w-full flex-col flex mb-2 ">
+		<div class=" w-10 flex-col flex  overflow-hidden">
 			{#each $saveDataMainStore.activityList as data, i}
-				<ActivityTimeElement activitySaveData={data} activityNumber={i} />
+				{#if getActivityStaticDataByType($saveDataMainStore.activityList[i].activityType).hasTime}
+					<ActivityTimeElement activitySaveData={data} activityNumber={i} />
+				{/if}
 			{/each}
 		</div>
-		<div class=" w-full flex-col flex mb-2 ">
+		<div class=" w-10 flex-col flex  overflow-hidden">
 			{#each $saveDataMainStore.activityList as data, i}
 				<ActivityCostElement activitySaveData={data} activityNumber={i} />
 			{/each}
