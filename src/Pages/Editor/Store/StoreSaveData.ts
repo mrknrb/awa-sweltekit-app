@@ -8,7 +8,7 @@ import { LifeStyleBasicData } from '../../Browser/Data/LifeStyleBasicData';
 let SaveDataDefault: SaveData_Main = {
 	activityList: [],
 	title: undefined,
-	earning: undefined,
+	earnings: undefined,
 	incomeType: undefined
 };
 
@@ -138,7 +138,7 @@ export abstract class saveDataMainStoreReducers {
 				return value1.activityId == activityId;
 			});
 			if (!activity) return value;
-			activity.duration = duration;
+			activity.time = duration;
 
 			return value;
 		});
@@ -149,7 +149,7 @@ export abstract class saveDataMainStoreReducers {
 				return value1.activityId == activityId;
 			});
 			if (!activity) return value;
-			activity.cost = cost;
+			activity.money = cost;
 
 			return value;
 		});

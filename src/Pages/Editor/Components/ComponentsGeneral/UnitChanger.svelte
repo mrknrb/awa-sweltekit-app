@@ -1,11 +1,28 @@
 <script lang="ts">
-	export let unitsData;
+	import { UnitDataType } from '../../../../Egyebek/TimeUnit/UnitDataType';
+	import { createEventDispatcher } from 'svelte';
+
+	export let unitsData: UnitDataType[];
+
+	export let value = unitsData[0]._id;
+	const dispatch = createEventDispatcher();
+	function changed() {
+		dispatch('changed', {
+			value
+		});
+	}
 </script>
 
-<div
-	class="flex flex-row justify-between w-full cursorSelect hoverClick grow}"
-	style="align-items: center"
+<select
+	name="cars"
+	id="cars"
+	class="font-bold bg-transparent cursor-pointer"
+	bind:value
+	on:change={() => {
+		changed();
+	}}
 >
-	<b class="ml-2" />
-	<div class="h-4 w-4 mr-2 flex flex-col grow " />
-</div>
+	{#each unitsData as data, i}
+		<option class="font-bold" value={unitsData[i]._id}>{unitsData[i].label}</option>
+	{/each}
+</select>

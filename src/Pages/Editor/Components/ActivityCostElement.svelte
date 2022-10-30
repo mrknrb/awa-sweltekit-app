@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity';
-	import { nagyitasKalkulalo } from '../../../Egyebek/NagyitasKalkulalo';
 	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import { createEventDispatcher } from 'svelte';
 	import { MoneyTimeFunctions } from '../../../Functions/MoneyTimeFunctions';
@@ -16,7 +15,7 @@
 		}
 	};
 
-	$: WorkMinutes = MoneyTimeFunctions.costToWorkMinutes(10 / 60, activitySaveData.cost);
+	$: WorkMinutes = MoneyTimeFunctions.costToWorkMinutes(10 / 60, activitySaveData.money);
 
 	$: imageurl = 'images/' + activitySaveData.activityType + '.jpg';
 </script>

@@ -5,14 +5,14 @@
 	import { tempDataStoreReducers } from '../Store/StoreTempData';
 	import DiagramTitle from './DiagramTitle.svelte';
 	import ActivityPicker from './ActivityPicker.svelte';
-	import ActivityDurationList from './ActivityDurationList.svelte';
+	import ActivityTimeList from './ActivityTimeList.svelte';
 
 	let firstVisibleActivityNumber = 0;
 	let firstVisibleActivityNumberCalculator = (scrollHeight: number) => {};
 </script>
 
 <div class="flex flex-row  " style="max-height: 70vh;height: 70vh">
-	<ActivityDurationList />
+	<ActivityTimeList />
 	<div class="   flex flex-wrap overflow-auto" style="">
 		{#each $saveDataMainStore.activityList as data, i}
 			<ActivityCard activityType={data.activityType} activitySaveData={data} activityNumber={i} />

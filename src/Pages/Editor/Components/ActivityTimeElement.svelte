@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity';
-	import { nagyitasKalkulalo } from '../../../Egyebek/NagyitasKalkulalo';
 	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import { createEventDispatcher } from 'svelte';
 
@@ -26,7 +25,7 @@
 		on:mouseleave={() => {
 			tempDataStoreReducers.highlightActivity(undefined);
 		}}
-		style="height: {activitySaveData.duration *
+		style="height: {activitySaveData.time *
 			2}px;background-repeat: no-repeat ;background-size:180%;background-position: right top; background-image: linear-gradient(#bbbbbb, #858585)"
 		class="w-16 flex  justify-center cent overflow-hidden bg-gray-300 bg-opacity-60 box-border {highlighted()} "
 	>

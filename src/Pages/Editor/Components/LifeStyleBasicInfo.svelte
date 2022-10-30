@@ -25,10 +25,10 @@
 	<LifeStyleBasicInfoElement
 		elementName="Earnings"
 		type="number"
-		value={$saveDataMainStore.earning}
+		value={$saveDataMainStore.earnings}
 		on:change={(event) => {
 			saveDataMainStoreReducers.changeSave((saveData) => {
-				saveData.earning = event.target.value;
+				saveData.earnings = event.target.value;
 				return saveData;
 			});
 		}}
@@ -36,10 +36,10 @@
 	<LifeStyleBasicInfoElement
 		elementName="sleepDuration"
 		type="number"
-		value={$saveDataMainStore.sleepDuration}
+		value={$saveDataMainStore.sleepTime}
 		on:change={(event) => {
 			saveDataMainStoreReducers.changeSave((saveData) => {
-				saveData.sleepDuration = event.target.value;
+				saveData.sleepTime = event.target.value;
 				return saveData;
 			});
 		}}
@@ -47,10 +47,10 @@
 	<LifeStyleBasicInfoElement
 		elementName="WorkDuration"
 		type="number"
-		value={$saveDataMainStore.workDuration}
+		value={$saveDataMainStore.workTime}
 		on:change={(event) => {
 			saveDataMainStoreReducers.changeSave((saveData) => {
-				saveData.workDuration = event.target.value;
+				saveData.workTime = event.target.value;
 				return saveData;
 			});
 		}}
