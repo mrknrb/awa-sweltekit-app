@@ -4,11 +4,8 @@ import { StaticData_Setting } from './StaticData_Setting';
 
 export interface StaticData_Activity {
 	activityType: ActivityTypes;
-	activityLogo: string;
 	defaultUnit: TimeUnits;
-	basePrice: number;
 	activitySettings: StaticData_Setting[];
 	hasTime: boolean;
-	CoreValuesTimeDependent: boolean;
-	CoreValuesMaximumTime: number;
+	canBeWithOthers: boolean;
 }

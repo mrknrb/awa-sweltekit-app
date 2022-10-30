@@ -7,11 +7,11 @@ export const post: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);
 
 	let body: string = await request.json();
-	console.log(body);
+	//console.log(body);
 
 	const docSnap = await getDoc(doc(db, 'lifestyles', body));
-	console.log(docSnap.data());
-	console.log(docSnap.exists());
+	//console.log(docSnap.data());
+	//console.log(docSnap.exists());
 	if (docSnap.exists()) {
 		let docData = docSnap.data();
 		//console.log('Document data:', docData);

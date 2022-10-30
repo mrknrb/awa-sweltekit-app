@@ -16,7 +16,6 @@ export abstract class TimeFunctions {
 		return result;
 	}
 	static MinuteToHourMinute(totalMinutes: number) {
-		console.log(totalMinutes);
 		const minutes = totalMinutes % 60;
 		const hours = Math.floor(totalMinutes / 60);
 

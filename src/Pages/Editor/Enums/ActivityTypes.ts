@@ -1,9 +1,7 @@
 export enum ActivityTypes {
-	//essential
 	housing = 'housing',
 	eating = 'eating',
 	personalCare = 'personalCare',
-	insurances = 'insurances',
 
 	goingOut = 'goingOut',
 	pleasure = 'pleasure',

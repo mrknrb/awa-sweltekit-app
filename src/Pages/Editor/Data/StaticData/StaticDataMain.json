@@ -1,242 +1,213 @@
 {
   "activities": [
     {
-      "activityGroupType": "essentials",
-      "activityLogo": "",
       "activitySettings": [
         {
-          "settingName": "HousingType",
+          "settingName": "Ownership",
           "settingOptions": [
             {
               "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 0,
-              "settingOptionName": "Own"
+              "settingOptionName": "Own house"
             },
             {
               "coreValueTypes": [],
-              "moneyAdd": 100000,
-              "moneyMultiplier": 0,
               "settingOptionName": "Rent"
             }
           ],
           "settingType": "dropDown"
-        },
-        {
-          "settingName": "HouseSizePerPerson",
-          "settingOptions": [
-            {
-              "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 1,
-              "settingOptionName": ""
-            }
-          ],
-          "settingType": "number"
         }
       ],
       "activityType": "housing",
-      "basePrice": 0,
-      "defaultUnit": "Hour_Month",
+      "defaultUnit": "Month",
       "hasTime": false,
-      "productive": "NonProductive",
-      "CoreValuesMaximumTime": 0,
-      "CoreValuesTimeDependent": false
+      "activitySubTypes": []
     },
     {
-      "activityGroupType": "essentials",
-      "activityLogo": "",
       "activitySettings": [
         {
-          "settingName": "efficiency",
+          "settingName": "Healthiness",
           "settingOptions": [
             {
               "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 1,
-              "settingOptionName": "Minimal"
+              "settingOptionName": "JunkFood"
             },
             {
               "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 1.5,
-              "settingOptionName": "Frugal"
+              "settingOptionName": "Normal"
             },
             {
               "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 3,
-              "settingOptionName": "Average"
-            },
-            {
-              "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 5,
-              "settingOptionName": "Wasting"
+              "settingOptionName": "Healthy"
             }
           ],
           "settingType": "dropDown"
         },
         {
-          "settingName": "Quality",
+          "settingName": "Taste",
           "settingOptions": [
             {
               "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 1,
-              "settingOptionName": "HumanFuel"
+              "settingOptionName": "Minimal"
             },
             {
-              "coreValueTypes": [
-                {
-                  "coreValue": "health",
-                  "rank": 2
-                },
-                {
-                  "coreValue": "enjoyment",
-                  "rank": 2
-                }
-              ],
-              "moneyAdd": 0,
-              "moneyMultiplier": 1.5,
-              "settingOptionName": "Good"
+              "coreValueTypes": [],
+              "settingOptionName": "Normal"
             },
             {
-              "coreValueTypes": [
-                {
-                  "coreValue": "health",
-                  "rank": 4
-                },
-                {
-                  "coreValue": "enjoyment",
-                  "rank": 4
-                }
-              ],
-              "moneyAdd": 0,
-              "moneyMultiplier": 3,
-              "settingOptionName": "Best"
+              "coreValueTypes": [],
+              "settingOptionName": "Very Good"
             }
           ],
           "settingType": "dropDown"
         }
       ],
       "activityType": "eating",
-      "basePrice": 15000,
-      "defaultUnit": "Minute_Day",
+      "defaultUnit": "Day",
       "hasTime": true,
-      "productive": "NonProductive",
-      "CoreValuesMaximumTime": 0,
-      "CoreValuesTimeDependent": false
+      "activitySubTypes": [],
+      "canBeWithOthers": true
     },
     {
-      "activityGroupType": "health",
-      "activityLogo": "",
       "activitySettings": [
         {
-          "settingName": "SportType",
+          "settingName": "subTypes",
           "settingOptions": [
             {
               "coreValueTypes": [],
-              "moneyAdd": 10000,
-              "moneyMultiplier": 0,
-              "settingOptionName": "Swimming"
-            },
-            {
-              "coreValueTypes": [],
-              "moneyAdd": 1000,
-              "moneyMultiplier": 0,
               "settingOptionName": "Running"
             },
             {
               "coreValueTypes": [],
-              "moneyAdd": 10000,
-              "moneyMultiplier": 0,
+              "settingOptionName": "Swimming"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Soccer"
+            },
+            {
+              "coreValueTypes": [],
               "settingOptionName": "Gym"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Cycling"
             }
           ],
           "settingType": "dropDown"
         },
         {
-          "settingName": "WithSomeone",
+          "settingName": "Intensity",
           "settingOptions": [
             {
               "coreValueTypes": [],
-              "moneyAdd": 0,
-              "moneyMultiplier": 0,
-              "settingOptionName": "0"
+              "settingOptionName": "Low"
             },
             {
-              "coreValueTypes": [
-                {
-                  "coreValue": "socialisation",
-                  "rank": 3
-                }
-              ],
-              "moneyAdd": 0,
-              "moneyMultiplier": 0,
-              "settingOptionName": "1"
+              "coreValueTypes": [],
+              "settingOptionName": "Middle"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "High"
             }
           ],
-          "settingType": "boolean"
+          "settingType": "dropDown"
         }
       ],
       "activityType": "sport",
-      "basePrice": 0,
-      "defaultUnit": "FullDay_Year",
+      "defaultUnit": "Week",
       "hasTime": true,
-      "productive": "NonProductive",
-      "CoreValuesMaximumTime": 60,
-      "CoreValuesTimeDependent": true
-    }
-  ],
-  "activityGroups": [
-    {
-      "GroupType": "adventure",
-      "GroupColor": ""
+      "activitySubTypes": [],
+      "canBeWithOthers": true
     },
     {
-      "GroupType": "altruism",
-      "GroupColor": ""
+      "activitySettings": [
+        {
+          "settingName": "subTypes",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Napping"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Walking"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Meditating"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "relaxing",
+      "defaultUnit": "Day",
+      "hasTime": true
     },
     {
-      "GroupType": "creating",
-      "GroupColor": ""
+      "activitySettings": [
+        {
+          "settingName": "subTypes",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Movie"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Concert"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Party"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "HouseParty"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Shopping"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "goingOut",
+      "defaultUnit": "Week",
+      "hasTime": true,
+      "canBeWithOthers": true
     },
     {
-      "GroupType": "essentials",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "goingOut",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "health",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "lazyFun",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "learning",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "love",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "relaxing",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "socialisation",
-      "GroupColor": ""
-    },
-    {
-      "GroupType": "status",
-      "GroupColor": ""
+      "activitySettings": [
+        {
+          "settingName": "subType",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "showering"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "SkinCare"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Makeup"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Clothing"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "personalCare",
+      "defaultUnit": "Day",
+      "hasTime": true,
+      "canBeWithOthers": false
     }
   ]
 }
