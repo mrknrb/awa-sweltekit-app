@@ -4,6 +4,7 @@ import { writable } from 'svelte/store';
 import { ActivityTypes } from '../Enums/ActivityTypes.js';
 import { OMF } from '../../../Egyebek/OMF';
 import { LifeStyleBasicData } from '../../Browser/Data/LifeStyleBasicData';
+import { tempDataStoreReducers } from './StoreTempData';
 
 let SaveDataDefault: SaveData_Main = {
 	activityList: [],
@@ -21,6 +22,7 @@ export let saveDataMainStore = writable(SaveDataDefault, () => {
 export let saveDataMainActual: SaveData_Main;
 saveDataMainStore.subscribe((value) => {
 	saveDataMainActual = value;
+	tempDataStoreReducers.modificationSinceSave(true);
 	console.log(saveDataMainActual);
 });
 
@@ -66,6 +68,7 @@ export abstract class saveDataMainStoreReducers {
 			value._id = data.DiagramId;
 			return value;
 		});
+		tempDataStoreReducers.modificationSinceSave(false);
 		return true;
 	}
 

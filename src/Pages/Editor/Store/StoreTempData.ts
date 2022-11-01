@@ -1,17 +1,18 @@
 import { writable } from 'svelte/store';
 import { SaveData_Main } from '../Data/SaveData/SaveData_Main';
-import { saveDataMainStore } from './StoreSaveData';
 
 let TempDataDefault: TempData = {
 	draggingActionId: '',
 	activityPickerActive: false,
-	highlightedActivitityNumber: undefined
+	highlightedActivitityNumber: undefined,
+	modificationSinceSave: false
 };
 
 export type TempData = {
 	draggingActionId: string;
 	activityPickerActive: boolean;
 	highlightedActivitityNumber: number | undefined;
+	modificationSinceSave: boolean;
 };
 
 export let storeTempData = writable(TempDataDefault, () => {
@@ -37,6 +38,12 @@ export abstract class tempDataStoreReducers {
 		storeTempData.update((value) => {
 			value.highlightedActivitityNumber = number;
 			return value;
+		});
+	}
+	static modificationSinceSave(trueFalse: boolean) {
+		storeTempData.update((value1) => {
+			value1.modificationSinceSave = trueFalse;
+			return value1;
 		});
 	}
 }

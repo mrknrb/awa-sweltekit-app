@@ -11,7 +11,7 @@
 	let firstVisibleActivityNumberCalculator = (scrollHeight: number) => {};
 </script>
 
-<div class="flex flex-row  " style="max-height: calc(100vh - 50px);calc(100vh - 50px)">
+<div class="flex flex-row  " style="max-height: calc(100vh - 50px);height: calc(100vh - 50px)">
 	<ActivityTimeList />
 	<div class="   flex flex-wrap overflow-auto content-start " style="">
 		{#each $saveDataMainStore.activityList as data, i}

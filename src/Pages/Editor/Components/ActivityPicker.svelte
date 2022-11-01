@@ -9,15 +9,18 @@
 </script>
 
 <div
-	class="fixed w-full h-full  {active} z-50 bg-gray-600 bg-opacity-80 "
-	style="flex-wrap: wrap;flex-direction: column"
+	class="absolute  h-full  {active} z-50 bg-gray-600 bg-opacity-80 "
+	style="flex-wrap: wrap;flex-direction: column;width: inherit"
 	on:click={() => {
 		tempDataStoreReducers.activityPickerActivate(false);
 	}}
 >
-	<div class="w-full h-5/6 flex flex-col overflow-auto">
+	<div class="w-full h-5/6 flex flex-col overflow-auto ">
 		{#each staticDataActivityGroups as activityGroup, i}
-			<div style="background-color: {staticDataActivityGroups[i].color}">
+			<div
+				style="background-color: {staticDataActivityGroups[i].color}"
+				class="flex flex-row flex-wrap justify-center"
+			>
 				{#each staticDataActivities as activity, e}
 					{#if staticDataActivities[e].activityGroup === staticDataActivityGroups[i].activityGroupType}
 						<ActivityPickerCard activityType={activity.activityType} />
