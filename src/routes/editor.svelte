@@ -16,8 +16,7 @@
 	});
 </script>
 
-<TopBar />
-
 <div class="h-full max-h-full w-full max-w-full">
 	<DiagramBody />
 </div>
+<TopBar />

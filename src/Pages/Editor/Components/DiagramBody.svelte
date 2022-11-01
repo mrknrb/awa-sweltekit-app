@@ -3,7 +3,7 @@
 	import LifeStyleBasicInfo from './LifeStyleBasicInfo.svelte';
 </script>
 
-<div class=" p-4 left-0 right-0 overflow-auto">
+<div class="  left-0 right-0 overflow-auto">
 	<ActivityCardList />
 	<LifeStyleBasicInfo />
 </div>

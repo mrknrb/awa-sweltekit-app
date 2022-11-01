@@ -2,7 +2,7 @@
 	import { saveDataMainStoreReducers } from '../Store/StoreSaveData';
 </script>
 
-<div style="background-color: #4f4f4f;height: 50px;width: 100%">
+<div style="background-color: #4f4f4f;height: 50px;width: 100%" class="sticky bottom-0">
 	<input
 		type="button"
 		value="Save"
