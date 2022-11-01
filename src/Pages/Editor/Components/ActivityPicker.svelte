@@ -2,12 +2,28 @@
 	import { globalStaticData } from '../Store/GlobalStaticData.js';
 	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
 	import ActivityPickerCard from './ActivityPickerCard.svelte';
+	import { staticDataActivityGroups } from '../Data/StaticData/StaticDataActivityGroups';
+	import { staticDataActivities } from '../Data/StaticData/StaticDataActivities';
 
-	$: active = $storeTempData.activityPickerActive;
+	$: active = $storeTempData.activityPickerActive ? 'flex' : 'hidden';
 </script>
 
-<div style="display: flex;justify-content:center ;flex-wrap: wrap;flex-direction: column">
-	{#each globalStaticData.activities as activity, i}
-		<ActivityPickerCard activityType={activity.activityType} />
-	{/each}
+<div
+	class="fixed w-full h-full  {active} z-50 bg-gray-600 bg-opacity-80 items-center"
+	style="justify-content:center ;flex-wrap: wrap;flex-direction: column"
+	on:click={() => {
+		tempDataStoreReducers.activityPickerActivate(false);
+	}}
+>
+	<div class="w-5/6 h-5/6 flex flex-col overflow-auto">
+		{#each staticDataActivityGroups as activityGroup, i}
+			<div style="background-color: {staticDataActivityGroups[i].color}">
+				{#each staticDataActivities as activity, e}
+					{#if staticDataActivities[e].activityGroup === staticDataActivityGroups[i].activityGroupType}
+						<ActivityPickerCard activityType={activity.activityType} />
+					{/if}
+				{/each}
+			</div>
+		{/each}
+	</div>
 </div>

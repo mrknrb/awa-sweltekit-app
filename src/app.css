@@ -17,9 +17,6 @@ h2{
 
 }
 
- .hoverClick:hover {
-     -webkit-filter: brightness(120%);
- }
 
 .ActivityCardElem {
     @apply  hoverClick  cursor-pointer  bg-gray-200 bg-opacity-40  ;
@@ -44,8 +41,8 @@ a, b ,*,.unselectable {
         @apply overflow-hidden float-left bg-gray-300 bg-opacity-60 h-fit m-1 min-w-fit flex-col rounded-xl shadow shadow-gray-700;
 
     }
-    .hoverClick {
-        @apply  active:bg-opacity-60 hover:bg-opacity-40
+    .hoverClick{
+        @apply active:brightness-75  hover:brightness-110
     }
 
 }

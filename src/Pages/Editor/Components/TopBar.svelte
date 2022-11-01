@@ -1,5 +1,6 @@
 <script>
 	import { saveDataMainStoreReducers } from '../Store/StoreSaveData';
+	import { tempDataStoreReducers } from '../Store/StoreTempData';
 </script>
 
 <div class="fixed bottom-6 right-6  h-16 flex  justify-end space-x-2">
@@ -12,7 +13,12 @@
 		}}
 	/>
 
-	<div class=" w-16   bg-green-600 justify-center content-center flex rounded-2xl ">
+	<div
+		class=" w-16   bg-green-600 justify-center content-center flex rounded-2xl hoverClick"
+		on:click={() => {
+			tempDataStoreReducers.activityPickerActivate(true);
+		}}
+	>
 		<b class="m-auto text-6xl">+</b>
 	</div>
 </div>
