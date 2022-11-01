@@ -41,7 +41,7 @@
 	$: imageurl = 'images/' + activityType + '.jpg';
 </script>
 
-<div class="h-auto bg-emerald-500">
+<div class="h-auto bg-emerald-500 w-auto">
 	<div
 		class="mrkCard {highlighted()}   border-transparent box-border border-t-4 border-gray-400 border-transparent"
 		style="  background-size: 100%;background-repeat: no-repeat ;/*background-blend-mode: lighten ;*/background-image: url({imageurl});"

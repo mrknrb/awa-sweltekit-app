@@ -5,5 +5,5 @@
 
 <div class="  left-0 right-0 overflow-auto">
 	<ActivityCardList />
-	<LifeStyleBasicInfo />
+	<!--	<LifeStyleBasicInfo />-->
 </div>

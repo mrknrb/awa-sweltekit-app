@@ -11,14 +11,15 @@
 	let firstVisibleActivityNumberCalculator = (scrollHeight: number) => {};
 </script>
 
-<div class="flex flex-row  " style="max-height: 70vh;height: 70vh">
+<div class="flex flex-row  " style="max-height: calc(100vh - 50px);calc(100vh - 50px)">
 	<ActivityTimeList />
-	<div class="   flex flex-wrap overflow-auto content-start" style="">
+	<div class="   flex flex-wrap overflow-auto content-start " style="">
 		{#each $saveDataMainStore.activityList as data, i}
 			<ActivityCard activityType={data.activityType} activitySaveData={data} activityNumber={i} />
 		{/each}
-		<div class=" w-12  float-left   mrkCard ">
+		<!--	<div class=" w-12  float-left   mrkCard ">
 			<ActivityPicker />
-		</div>
+		</div>-->
+		<div class=" w-12 h-72      " />
 	</div>
 </div>
