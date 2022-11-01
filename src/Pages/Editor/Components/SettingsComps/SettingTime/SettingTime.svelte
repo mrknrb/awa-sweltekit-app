@@ -39,7 +39,6 @@
 </script>
 
 <div class="flex flex-col justify-between w-full grow ">
-	<b class=" ml-2">Duration</b>
 	<div class="flex flex-row  w-full grow">
 		<input
 			type="text"

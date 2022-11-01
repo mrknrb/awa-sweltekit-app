@@ -41,95 +41,97 @@
 	$: imageurl = 'images/' + activityType + '.jpg';
 </script>
 
-<div
-	class="mrkCard {highlighted()}   border-transparent box-border border-t-4 border-gray-400 border-transparent"
-	style="  background-size: 100%;background-repeat: no-repeat ;/*background-blend-mode: lighten ;*/background-image: url({imageurl});"
-	on:mouseenter={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber);
-	}}
-	on:touchstart={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber);
-	}}
-	on:touchend={() => {
-		tempDataStoreReducers.highlightActivity(activityNumber);
-	}}
-	on:mouseleave={() => {
-		tempDataStoreReducers.highlightActivity(undefined);
-	}}
->
-	<div class="flex " style="/*backdrop-filter: blur(2px);*/">
-		<h3 class=" justify-center text-2xl text-center flex-grow">
-			{activityNumber + 1}
-		</h3>
-		<h3 class="justify-center text-2xl text-center flex-grow">
-			{activityType}
-		</h3>
-		<div
-			on:click={() => {
-				if ($storeTempData.draggingActionId === '')
-					tempDataStoreReducers.draggingModeStartStop(activitySaveData.activityId);
-				else {
-					saveDataMainStoreReducers.changeActivityOrder(
-						$storeTempData.draggingActionId,
-						activitySaveData.activityId
-					);
-					tempDataStoreReducers.draggingModeStartStop('');
-				}
-			}}
-			class="overflow-hidden  w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-blue-300"
-		>
-			{#if $storeTempData.draggingActionId === ''}
-				<IoIosMenu />
-			{:else if $storeTempData.draggingActionId === activitySaveData.activityId}
-				<IoIosMenu />
-			{:else}
-				<div class="bg-amber-400">
-					<IoIosLogIn />
-				</div>
-			{/if}
+<div class="h-auto bg-emerald-500">
+	<div
+		class="mrkCard {highlighted()}   border-transparent box-border border-t-4 border-gray-400 border-transparent"
+		style="  background-size: 100%;background-repeat: no-repeat ;/*background-blend-mode: lighten ;*/background-image: url({imageurl});"
+		on:mouseenter={() => {
+			tempDataStoreReducers.highlightActivity(activityNumber);
+		}}
+		on:touchstart={() => {
+			tempDataStoreReducers.highlightActivity(activityNumber);
+		}}
+		on:touchend={() => {
+			tempDataStoreReducers.highlightActivity(activityNumber);
+		}}
+		on:mouseleave={() => {
+			tempDataStoreReducers.highlightActivity(undefined);
+		}}
+	>
+		<div class="flex " style="/*backdrop-filter: blur(2px);*/">
+			<h3 class=" justify-center text-2xl text-center flex-grow">
+				{activityNumber + 1}
+			</h3>
+			<h3 class="justify-center text-2xl text-center flex-grow">
+				{activityType}
+			</h3>
+			<div
+				on:click={() => {
+					if ($storeTempData.draggingActionId === '')
+						tempDataStoreReducers.draggingModeStartStop(activitySaveData.activityId);
+					else {
+						saveDataMainStoreReducers.changeActivityOrder(
+							$storeTempData.draggingActionId,
+							activitySaveData.activityId
+						);
+						tempDataStoreReducers.draggingModeStartStop('');
+					}
+				}}
+				class="overflow-hidden  w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-blue-300"
+			>
+				{#if $storeTempData.draggingActionId === ''}
+					<IoIosMenu />
+				{:else if $storeTempData.draggingActionId === activitySaveData.activityId}
+					<IoIosMenu />
+				{:else}
+					<div class="bg-amber-400">
+						<IoIosLogIn />
+					</div>
+				{/if}
+			</div>
+			<div
+				on:click={() => {
+					saveDataMainStoreReducers.deleteActivity(activitySaveData.activityId);
+				}}
+				class=" w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-orange-600"
+			>
+				<IoIosClose />
+			</div>
+			<!-- { activitySaveData.activityId}-->
 		</div>
-		<div
-			on:click={() => {
-				saveDataMainStoreReducers.deleteActivity(activitySaveData.activityId);
-			}}
-			class=" w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-orange-600"
-		>
-			<IoIosClose />
-		</div>
-		<!-- { activitySaveData.activityId}-->
-	</div>
-	<div class="flex flex-col  " style="/*backdrop-filter: blur(2px);*/">
-		{#each ActivityStaticData.activitySettings as setting, i}
-			{#if setting.settingType === SettingsTypes.boolean}
-				<SettingBool
-					settingStaticData={setting}
-					on:SettingChange={(e) => {
-						SettingChange(setting, e.detail);
-					}}
-					settingSaveData={getSettingSaveFunc(setting.settingName)}
-				/>
-			{:else if setting.settingType === SettingsTypes.dropDown}
-				<SettingDropDown
-					settingStaticData={setting}
-					settingSaveData={getSettingSaveFunc(setting.settingName)}
-					on:SettingChange={(e) => {
-						SettingChange(setting, e.detail);
-					}}
-				/>
-			{:else if setting.settingType === SettingsTypes.number}
-				<SettingNumber
-					settingStaticData={setting}
-					settingSaveData={getSettingSaveFunc(setting.settingName)}
-					on:SettingChange={(e) => {
-						SettingChange(setting, e.detail);
-					}}
-				/>
+		<div class="flex flex-col  " style="/*backdrop-filter: blur(2px);*/">
+			{#each ActivityStaticData.activitySettings as setting, i}
+				{#if setting.settingType === SettingsTypes.boolean}
+					<SettingBool
+						settingStaticData={setting}
+						on:SettingChange={(e) => {
+							SettingChange(setting, e.detail);
+						}}
+						settingSaveData={getSettingSaveFunc(setting.settingName)}
+					/>
+				{:else if setting.settingType === SettingsTypes.dropDown}
+					<SettingDropDown
+						settingStaticData={setting}
+						settingSaveData={getSettingSaveFunc(setting.settingName)}
+						on:SettingChange={(e) => {
+							SettingChange(setting, e.detail);
+						}}
+					/>
+				{:else if setting.settingType === SettingsTypes.number}
+					<SettingNumber
+						settingStaticData={setting}
+						settingSaveData={getSettingSaveFunc(setting.settingName)}
+						on:SettingChange={(e) => {
+							SettingChange(setting, e.detail);
+						}}
+					/>
+				{/if}
+			{/each}
+			{#if ActivityStaticData.hasTime === true}
+				<SettingTime {activitySaveData} {ActivityStaticData} />
 			{/if}
-		{/each}
-		{#if ActivityStaticData.hasTime === true}
-			<SettingTime {activitySaveData} {ActivityStaticData} />
-		{/if}
 
-		<SettingCost {activitySaveData} {ActivityStaticData} />
+			<SettingCost {activitySaveData} {ActivityStaticData} />
+		</div>
 	</div>
 </div>

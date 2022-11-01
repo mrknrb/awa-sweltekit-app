@@ -26,7 +26,7 @@
 
 	let changeMoneyTimeUnit = (unit: TimeUnits) => {
 		TimeUnitChangeID = unit;
-		console.log(unit);
+
 		saveDataMainStoreReducers.changeActivity(activitySaveData.activityId, (saveData) => {
 			saveData.moneyTimeUnit = TimeUnitChangeID;
 			return saveData;
@@ -57,7 +57,6 @@
 </script>
 
 <div class="flex flex-col justify-between w-full grow ">
-	<b class=" ml-2">Cost</b>
 	<div class="flex flex-row  w-full grow ">
 		<input
 			type="number"

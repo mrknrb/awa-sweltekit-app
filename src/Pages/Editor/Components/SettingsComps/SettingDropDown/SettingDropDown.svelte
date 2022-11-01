@@ -15,7 +15,8 @@
 	};
 </script>
 
-<b class="ml-2">{settingStaticData.settingName}</b>
+<!--
+<b class="ml-2">{settingStaticData.settingName}</b>-->
 <div class="w-full mt-1 mb-1  bg">
 	<div
 		class="ActivityCardElem  w-full p-0.5 flex flex-row justify-between
@@ -25,6 +26,7 @@
 		}}
 	>
 		<b class="ml-3">{settingSaveData ? settingSaveData : ''}</b>
+		<a class="text-s">{settingStaticData.settingName}</a>
 		<div class="h-5 w-5">
 			{#if isShowing}
 				<MdKeyboardArrowUp />
