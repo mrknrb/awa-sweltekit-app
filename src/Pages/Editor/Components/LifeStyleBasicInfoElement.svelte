@@ -4,5 +4,5 @@
 	export let value = '';
 </script>
 
-<b> {elementName} </b>
-<input {type} class="text-3xl" {value} on:change />
+<b class="label"> {elementName} </b>
+<input {type} class="text-3xl input" {value} on:change />

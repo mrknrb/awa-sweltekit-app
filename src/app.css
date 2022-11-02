@@ -38,7 +38,7 @@ a, b ,*,.unselectable {
 
 @layer components {
     .mrkCard {
-        @apply overflow-hidden float-left bg-gray-300 bg-opacity-60 h-fit m-1 min-w-fit flex-col rounded-xl shadow shadow-gray-700;
+        @apply  overflow-hidden float-left bg-gray-300 bg-opacity-60 h-fit m-1 min-w-fit flex-col rounded-2xl shadow  shadow-lg;
 
     }
     .hoverClick{

@@ -13,8 +13,8 @@
 	}
 </script>
 
-<div class="flex flex-row m-4  bg-amber-100 ">
-	<div class="flex flex-row  hoverClick bg-amber-100" on:click={openPage}>
+<div class="flex flex-row m-4  ">
+	<div class="flex flex-row btn btn-block  " on:click={openPage}>
 		<h2 class="m-4">{lifeStyleBasicData.title}</h2>
 		<h2 class="m-4">{lifeStyleBasicData._id}</h2>
 	</div>
