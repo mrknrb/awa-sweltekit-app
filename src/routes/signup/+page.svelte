@@ -6,7 +6,7 @@
 		signInWithEmailAndPassword,
 		createUserWithEmailAndPassword
 	} from 'firebase/auth';
-	import { authStoreReducers } from '../Pages/User/Store/authStore';
+	import { authStoreReducers } from '../../Pages/User/Store/authStore';
 
 	const auth = getAuth();
 

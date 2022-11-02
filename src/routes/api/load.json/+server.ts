@@ -1,9 +1,10 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import firebaseApp from '../fb';
+import firebaseApp from '../../../Egyebek/FirebaseInit';
+
+import type { RequestHandler } from './$types';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { doc, getDoc } from 'firebase/firestore';
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);
 
 	let body: string = await request.json();
@@ -15,10 +16,18 @@ export const post: RequestHandler = async ({ request }) => {
 	if (docSnap.exists()) {
 		let docData = docSnap.data();
 		//console.log('Document data:', docData);
-		return { status: 200, body: { a: 'ok', docData } };
+		return new Response(JSON.stringify({ docData }), {
+			headers: {
+				'content-type': 'application/json; charset=utf-8'
+			}
+		});
 	} else {
 		// doc.data() will be undefined in this case
-		return { status: 404, body: { a: 'ok', body } };
+		return new Response(JSON.stringify({ docData }), {
+			headers: {
+				'content-type': 'application/json; charset=utf-8'
+			}
+		});
 		//	console.log('No such document!');
 	}
 };

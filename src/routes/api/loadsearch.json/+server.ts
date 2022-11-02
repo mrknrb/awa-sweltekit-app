@@ -1,8 +1,9 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import firebaseApp from '../fb';
+import firebaseApp from '../../../Egyebek/FirebaseInit';
+
+import type { RequestHandler } from './$types';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-export const post: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);
 	let docs = [];
 	const querySnapshot = await getDocs(collection(db, 'lifestyles'));
@@ -12,5 +13,9 @@ export const post: RequestHandler = async ({ request }) => {
 		docs.push(doc.data());
 	});
 
-	return { status: 200, body: { a: 'ok', docs } };
+	return new Response(JSON.stringify({ docs }), {
+		headers: {
+			'content-type': 'application/json; charset=utf-8'
+		}
+	});
 };

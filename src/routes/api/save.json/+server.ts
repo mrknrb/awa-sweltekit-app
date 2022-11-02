@@ -1,10 +1,12 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import { doc, setDoc } from 'firebase/firestore';
-import firebaseApp from '../fb';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { SaveData_Main } from '../../Pages/Editor/Data/SaveData/SaveData_Main';
+import firebaseApp from '../../../Egyebek/FirebaseInit';
 
-export const post: RequestHandler = async ({ request }) => {
+import type { RequestHandler } from './$types';
+
+import { doc, setDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { SaveData_Main } from '../../../Pages/Editor/Data/SaveData/SaveData_Main';
+
+export const POST: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);
 
 	let body: SaveData_Main = await request.json();
@@ -17,6 +19,9 @@ export const post: RequestHandler = async ({ request }) => {
 	await setDoc(doc(db, 'lifestyles', body._id), body);
 
 	console.log('Document has been added successfully');
-
-	return { status: 200, body: { a: 'ok', DiagramId: body._id } };
+	return new Response(JSON.stringify({ DiagramId: body._id }), {
+		headers: {
+			'content-type': 'application/json; charset=utf-8'
+		}
+	});
 };
