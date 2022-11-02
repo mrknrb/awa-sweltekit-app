@@ -1,6 +1,6 @@
 <script>
 	import { saveDataMainStoreReducers } from '../Store/StoreSaveData';
-	import { storeTempData, tempDataStoreReducers } from '../Store/StoreTempData';
+	import { storeTempData, tabMaxNumber, tempDataStoreReducers } from '../Store/StoreTempData';
 	import TopBarButton from './TopBarButton.svelte';
 	import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
 	import IoIosArrowForward from 'svelte-icons/io/IoIosArrowForward.svelte';
@@ -9,6 +9,9 @@
 	import TiPlus from 'svelte-icons/ti/TiPlus.svelte';
 
 	$: SaveModifiedColor = $storeTempData.modificationSinceSave ? 'bg-amber-800  ' : ' ';
+
+	$: previousTabExistsColor = $storeTempData.currentTabId === 0 ? 'bg-gray-700 ' : ' ';
+	$: nextTabExistsColor = $storeTempData.currentTabId === tabMaxNumber ? 'bg-gray-700  ' : ' ';
 </script>
 
 <div class="absolute bottom-6 right-6   h-16 flex  justify-end space-x-2 ">
@@ -21,19 +24,19 @@
 	/>
 
 	<TopBarButton
-		classInsert="  "
+		classInsert={previousTabExistsColor}
 		on:click={() => {
-			tempDataStoreReducers.activityPickerActivate(true);
+			tempDataStoreReducers.nextPrevTab(false);
 		}}><TiChevronLeft /></TopBarButton
 	>
 	<TopBarButton
-		classInsert="  "
+		classInsert={nextTabExistsColor}
 		on:click={() => {
-			tempDataStoreReducers.activityPickerActivate(true);
+			tempDataStoreReducers.nextPrevTab(true);
 		}}><TiChevronRight /></TopBarButton
 	>
 	<TopBarButton
-		classInsert="bg-green-600  "
+		classInsert="bg-green-600"
 		on:click={() => {
 			tempDataStoreReducers.activityPickerActivate(true);
 		}}><TiPlus /></TopBarButton

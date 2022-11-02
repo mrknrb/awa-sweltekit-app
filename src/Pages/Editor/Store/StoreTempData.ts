@@ -5,7 +5,8 @@ let TempDataDefault: TempData = {
 	draggingActionId: '',
 	activityPickerActive: false,
 	highlightedActivitityNumber: undefined,
-	modificationSinceSave: false
+	modificationSinceSave: false,
+	currentTabId: 0
 };
 
 export type TempData = {
@@ -13,8 +14,10 @@ export type TempData = {
 	activityPickerActive: boolean;
 	highlightedActivitityNumber: number | undefined;
 	modificationSinceSave: boolean;
+	currentTabId: number;
 };
 
+export let tabMaxNumber = 2;
 export let storeTempData = writable(TempDataDefault, () => {
 	console.log('got a subscriber');
 	return () => console.log('no more subscribers');
@@ -43,6 +46,17 @@ export abstract class tempDataStoreReducers {
 	static modificationSinceSave(trueFalse: boolean) {
 		storeTempData.update((value1) => {
 			value1.modificationSinceSave = trueFalse;
+			return value1;
+		});
+	}
+	static nextPrevTab(trueFalse: boolean) {
+		storeTempData.update((value1) => {
+			let num: number = trueFalse ? 1 : -1;
+
+			let eredmeny = value1.currentTabId + num;
+			if (eredmeny >= 0 && eredmeny <= tabMaxNumber) {
+				value1.currentTabId = eredmeny;
+			}
 			return value1;
 		});
 	}
