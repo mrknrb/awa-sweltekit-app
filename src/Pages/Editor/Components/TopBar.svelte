@@ -1,5 +1,5 @@
 <script>
-	import { saveDataMainStoreReducers } from '../Store/StoreSaveData';
+	import { saveDataMainStore, saveDataMainStoreReducers } from '../Store/StoreSaveData';
 	import { storeTempData, tabMaxNumber, tempDataStoreReducers } from '../Store/StoreTempData';
 	import TopBarButton from './TopBarButton.svelte';
 	import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
@@ -15,6 +15,13 @@
 </script>
 
 <div class="absolute bottom-6 right-6   h-16 flex  justify-end space-x-2 ">
+	<TopBarButton
+		text="Delete"
+		classInsert={'bg-red-900'}
+		on:click={async () => {
+			await saveDataMainStoreReducers.deleteLifeStyle($saveDataMainStore._id);
+		}}
+	/>
 	<TopBarButton
 		text="Save"
 		classInsert={SaveModifiedColor}

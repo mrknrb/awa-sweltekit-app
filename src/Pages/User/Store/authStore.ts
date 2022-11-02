@@ -14,7 +14,7 @@ export const isLoggedIn = writable(false);
 
 export abstract class authStoreReducers {
 	static async login(email: string, password: string) {
-		console.log(email, password);
+		//	console.log(email, password);
 		const auth = getAuth();
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
@@ -23,8 +23,8 @@ export abstract class authStoreReducers {
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
-				console.log(errorCode);
-				console.log(errorMessage);
+				//	console.log(errorCode);
+				//	console.log(errorMessage);
 			});
 	}
 	static logout() {
@@ -34,7 +34,7 @@ export abstract class authStoreReducers {
 				return null;
 			})
 			.catch((error) => {
-				console.error(error);
+				//	console.error(error);
 			});
 	}
 	static signup(email: string, password: string) {
@@ -42,7 +42,7 @@ export abstract class authStoreReducers {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				const user = userCredential.user;
-				console.log(user);
+				//	console.log(user);
 				goto('/');
 			})
 			.catch((error) => {

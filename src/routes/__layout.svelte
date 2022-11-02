@@ -32,7 +32,7 @@
 	</style>
 </svelte:head>
 
-<header class=" sticky">
+<header class=" sticky ">
 	<div style="height: 50px" class="  flex flex-row overflow-hidden">
 		<div
 			class="h-full  w-24  flex flex-row justify-center flex-wrap content-center hover:backdrop-brightness-110"

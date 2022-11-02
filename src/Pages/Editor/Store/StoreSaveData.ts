@@ -91,7 +91,24 @@ export abstract class saveDataMainStoreReducers {
 		}
 		return true;
 	}
-
+	static async deleteLifeStyle(_id?: string) {
+		console.log(saveDataMainActual._id);
+		let _id2 = _id ? _id : saveDataMainActual._id;
+		console.log(_id2);
+		const response = await fetch('/api/delete.json', {
+			method: 'post',
+			body: JSON.stringify(_id2),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+		if (saveDataMainActual._id === _id) {
+			saveDataMainStore.update((value) => {
+				return SaveDataDefault;
+			});
+			window.open('/browser', '_self');
+		}
+	}
 	static settingChange(activityId: string, settingName: string, settingValue: string) {
 		saveDataMainStore.update((value) => {
 			let activity = value.activityList.find((value1) => {
