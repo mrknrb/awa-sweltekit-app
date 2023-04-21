@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UnitDataType } from '../../../../Egyebek/TimeUnit/UnitDataType';
+	import { UnitDataType } from '../../Enums/TimeUnit/UnitDataType';
 	import { createEventDispatcher } from 'svelte';
 
 	export let unitsData: UnitDataType[];

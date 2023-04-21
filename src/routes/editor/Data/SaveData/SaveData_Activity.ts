@@ -1,8 +1,8 @@
 import { OMap } from '../../../../Egyebek/OMap';
 import { OMF } from '../../../../Egyebek/OMF.js';
 import { ActivityTypes } from '../../Enums/ActivityTypes.js';
-import { TimeUnits } from '../../../../Egyebek/TimeUnit/TimeUnits';
-import { MoneyUnits } from '../../../../Egyebek/MoneyUnit/MoneyUnits';
+import { TimeUnits } from '../../Enums/TimeUnit/TimeUnits';
+import { MoneyUnits } from '../../Enums/MoneyUnit/MoneyUnits';
 
 export class SaveData_Activity {
 	activityId = Math.random().toString();

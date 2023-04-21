@@ -1,4 +1,4 @@
-<div class="flex  flex-col content-center items-center">
+<div class="flex flex-col content-center items-center">
 	<img src="images/logo4.png" class="w-52" />
 
 	<h2>

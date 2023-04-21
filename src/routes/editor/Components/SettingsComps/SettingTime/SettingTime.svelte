@@ -3,9 +3,9 @@
 	import { SaveData_Activity } from '../../../Data/SaveData/SaveData_Activity';
 	import { StaticData_Activity } from '../../../Data/StaticData/StaticDataTypes/StaticData_Activity';
 	import UnitChanger from '../../ComponentsGeneral/UnitChanger.svelte';
-	import { timeUnitsArray } from '../../../../../Egyebek/TimeUnit/timeUnitsArray';
-	import { TimeFunctions } from '../../../../../Functions/TimeFunctions';
-	import { TimeUnits } from '../../../../../Egyebek/TimeUnit/TimeUnits';
+	import { timeUnitsArray } from '../../../Enums/TimeUnit/timeUnitsArray';
+	import { TimeFunctions } from '../../../Functions/TimeFunctions';
+	import { TimeUnits } from '../../../Enums/TimeUnit/TimeUnits';
 
 	export let ActivityStaticData: StaticData_Activity;
 	export let activitySaveData: SaveData_Activity;

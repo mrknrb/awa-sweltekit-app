@@ -6,7 +6,7 @@
 		saveDataMainStoreReducers
 	} from '../Store/StoreSaveData';
 	import { onMount } from 'svelte';
-	import { BrowserStoreReducers } from '../../Browser/Store/BrowserStore';
+	import { BrowserStoreReducers } from '../../browser/Store/BrowserStore';
 	import LifeStyleBasicInfoElement from './LifeStyleBasicInfoElement.svelte';
 </script>
 

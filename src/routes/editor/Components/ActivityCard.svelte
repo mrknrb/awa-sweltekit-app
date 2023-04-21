@@ -18,6 +18,7 @@
 	export let activityType: ActivityTypes;
 	export let activitySaveData: SaveData_Activity = new SaveData_Activity(activityType);
 	export let activityNumber = 0;
+	
 	$: ActivityStaticData = getActivityStaticDataByType(activityType);
 	$: SettingChange = (settingData: StaticData_Setting, optionData: string) => {
 		saveDataMainStoreReducers.settingChange(
@@ -59,12 +60,24 @@
 		}}
 	>
 		<div class="flex " style="/*backdrop-filter: blur(2px);*/">
-			<h3 class=" justify-center text-2xl text-center flex-grow">
+			<h3 class=" justify-center text-xl text-center flex-grow">
 				{activityNumber + 1}
 			</h3>
-			<h3 class="justify-center text-2xl text-center flex-grow">
+			<h3 class="justify-center text-xl text-center flex-grow">
 				{activityType}
 			</h3>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- <div
+				on:click={() => {}}
+				class="  w-8 h-8 flex justify-center rounded-bl-xl hoverClick float-right shadow  active:shadow-2xl cursorSelect hover:bg-blue-300"
+			>
+			
+				<IoIosMenu />
+				<div class="absolute top-4">
+					<div class=" h-20 w-20 bg-slate-400">kghjkghkj</div>
+				</div>
+			</div> -->
+
 			<div
 				on:click={() => {
 					if ($storeTempData.draggingActionId === '')
@@ -89,6 +102,7 @@
 					</div>
 				{/if}
 			</div>
+
 			<div
 				on:click={() => {
 					saveDataMainStoreReducers.deleteActivity(activitySaveData.activityId);
@@ -100,6 +114,7 @@
 			<!-- { activitySaveData.activityId}-->
 		</div>
 		<div class="flex flex-col  " style="/*backdrop-filter: blur(2px);*/">
+{#if ActivityStaticData }
 			{#each ActivityStaticData.activitySettings as setting, i}
 				{#if setting.settingType === SettingsTypes.boolean}
 					<SettingBool
@@ -130,7 +145,9 @@
 			{#if ActivityStaticData.hasTime === true}
 				<SettingTime {activitySaveData} {ActivityStaticData} />
 			{/if}
-
+	
+				
+			{/if}
 			<SettingCost {activitySaveData} {ActivityStaticData} />
 		</div>
 	</div>

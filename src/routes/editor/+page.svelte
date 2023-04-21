@@ -1,11 +1,11 @@
 <!--<link href="https://unpkg.com/mono-icons@1.3.1/iconfont/icons.css" rel="stylesheet">-->
 <script lang="ts">
-	import TopBar from '../Pages/Editor/Components/TopBar.svelte';
-	import DiagramBody from '../Pages/Editor/Components/DiagramBody.svelte';
+	import TopBar from './Components/TopBar.svelte';
+	import DiagramBody from './Components/DiagramBody.svelte';
 	import { onMount } from 'svelte';
-	import { BrowserStoreReducers } from '../Pages/Browser/Store/BrowserStore';
+	import { BrowserStoreReducers } from '../browser/Store/BrowserStore';
 	import queryString from 'query-string';
-	import { saveDataMainStoreReducers } from '../Pages/Editor/Store/StoreSaveData';
+	import { saveDataMainStoreReducers } from './Store/StoreSaveData';
 
 	onMount(async () => {
 		const parsed = queryString.parse(location.search);

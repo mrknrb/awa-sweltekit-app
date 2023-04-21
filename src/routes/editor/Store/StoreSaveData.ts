@@ -3,7 +3,7 @@ import { SaveData_Activity } from '../Data/SaveData/SaveData_Activity.js';
 import { writable } from 'svelte/store';
 import { ActivityTypes } from '../Enums/ActivityTypes.js';
 import { OMF } from '../../../Egyebek/OMF';
-import { LifeStyleBasicData } from '../../Browser/Data/LifeStyleBasicData';
+import { LifeStyleBasicData } from '../../browser/Data/LifeStyleBasicData';
 import { tempDataStoreReducers } from './StoreTempData';
 
 let SaveDataDefault: SaveData_Main = {

@@ -1,0 +1,216 @@
+{
+  "activities": [
+    {
+      "activitySettings": [
+        {
+          "settingName": "Ownership",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Own house"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Rent"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "housing",
+      "defaultUnit": "Month",
+      "hasTime": false,
+      "activitySubTypes": []
+    },
+    {
+      "activitySettings": [
+        {
+          "settingName": "Healthiness",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "JunkFood"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Normal"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Healthy"
+            }
+          ],
+          "settingType": "dropDown"
+        },
+        {
+          "settingName": "Taste",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Minimal"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Normal"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Very Good"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "eating",
+      "defaultUnit": "Day",
+      "hasTime": true,
+      "activitySubTypes": [],
+      "canBeWithOthers": true
+    },
+    {
+      "activitySettings": [
+        {
+          "settingName": "subTypes",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Running"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Swimming"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Soccer"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Gym"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Cycling"
+            }
+          ],
+          "settingType": "dropDown"
+        },
+        {
+          "settingName": "Intensity",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Low"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Middle"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "High"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "sport",
+      "defaultUnit": "Week",
+      "hasTime": true,
+      "activitySubTypes": [],
+      "canBeWithOthers": true
+    },
+    {
+      "activitySettings": [
+        {
+          "settingName": "subTypes",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Napping"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Walking"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Meditating"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "relaxing",
+      "defaultUnit": "Day",
+      "hasTime": true
+    },
+    {
+      "activitySettings": [
+        {
+          "settingName": "subTypes",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Movie"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Concert"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Party"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "HouseParty"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Shopping"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "goingOut",
+      "defaultUnit": "Week",
+      "hasTime": true,
+      "canBeWithOthers": true
+    },
+    {
+      "activitySettings": [
+        {
+          "settingName": "subType",
+          "settingOptions": [
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "showering"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "SkinCare"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Makeup"
+            },
+            {
+              "coreValueTypes": [],
+              "settingOptionName": "Clothing"
+            }
+          ],
+          "settingType": "dropDown"
+        }
+      ],
+      "activityType": "personalCare",
+      "defaultUnit": "Day",
+      "hasTime": true,
+      "canBeWithOthers": false
+    },
+    {
+      "": ""
+    }
+  ]
+}

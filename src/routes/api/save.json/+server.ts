@@ -4,7 +4,7 @@ import type { RequestHandler } from './$types';
 
 import { doc, setDoc } from 'firebase/firestore';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { SaveData_Main } from '../../../Pages/Editor/Data/SaveData/SaveData_Main';
+import { SaveData_Main } from '../../editor/Data/SaveData/SaveData_Main';
 
 export const POST: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);

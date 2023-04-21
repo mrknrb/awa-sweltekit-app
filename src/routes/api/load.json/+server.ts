@@ -1,7 +1,7 @@
 import firebaseApp from '../../../Egyebek/FirebaseInit';
 
 import type { RequestHandler } from './$types';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore,  } from 'firebase/firestore';
 import { doc, getDoc } from 'firebase/firestore';
 
 export const POST: RequestHandler = async ({ request }) => {

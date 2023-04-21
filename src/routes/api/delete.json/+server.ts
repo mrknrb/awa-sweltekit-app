@@ -1,8 +1,8 @@
 import firebaseApp from '../../../Egyebek/FirebaseInit';
 
 import type { RequestHandler } from '@sveltejs/kit';
-import { getFirestore, collection, getDocs, deleteDoc } from 'firebase/firestore';
-import { doc, getDoc } from 'firebase/firestore';
+import { getFirestore,  deleteDoc } from 'firebase/firestore';
+import { doc } from 'firebase/firestore';
 
 export const POST: RequestHandler = async ({ request }) => {
 	const db = getFirestore(firebaseApp);

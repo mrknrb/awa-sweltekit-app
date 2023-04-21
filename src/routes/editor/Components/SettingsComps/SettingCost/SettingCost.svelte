@@ -2,13 +2,13 @@
 	import { saveDataMainStore, saveDataMainStoreReducers } from '../../../Store/StoreSaveData';
 	import { SaveData_Activity } from '../../../Data/SaveData/SaveData_Activity';
 	import { StaticData_Activity } from '../../../Data/StaticData/StaticDataTypes/StaticData_Activity';
-	import { timeUnitsArray } from '../../../../../Egyebek/TimeUnit/timeUnitsArray';
+	import { timeUnitsArray } from '../../../Enums/TimeUnit/timeUnitsArray';
 	import UnitChanger from '../../ComponentsGeneral/UnitChanger.svelte';
-	import { TimeUnits } from '../../../../../Egyebek/TimeUnit/TimeUnits';
-	import { TimeFunctions } from '../../../../../Functions/TimeFunctions';
-	import { moneyUnitsArray } from '../../../../../Egyebek/MoneyUnit/MoneyUnitsArray';
-	import { MoneyUnits } from '../../../../../Egyebek/MoneyUnit/MoneyUnits';
-	import { MoneyTimeFunctions } from '../../../../../Functions/MoneyTimeFunctions';
+	import { TimeUnits } from '../../../Enums/TimeUnit/TimeUnits';
+	import { TimeFunctions } from '../../../Functions/TimeFunctions';
+	import { moneyUnitsArray } from '../../../Enums/MoneyUnit/MoneyUnitsArray';
+	import { MoneyUnits } from '../../../Enums/MoneyUnit/MoneyUnits';
+	import { MoneyTimeFunctions } from '../../../Functions/MoneyTimeFunctions';
 
 	export let ActivityStaticData: StaticData_Activity;
 	export let activitySaveData: SaveData_Activity;

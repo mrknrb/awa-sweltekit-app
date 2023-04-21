@@ -2,7 +2,7 @@
 	import { saveDataMainStore } from '../Store/StoreSaveData';
 	import ActivityCostElement from './ActivityCostElement.svelte';
 	import ActivityTimeElement from './ActivityTimeElement.svelte';
-	import { TimeFunctions } from '../../../Functions/TimeFunctions';
+	import { TimeFunctions } from '../Functions/TimeFunctions';
 	import { getActivityStaticDataByType } from '../Store/GlobalStaticData';
 
 	let idolista: number[] = [];

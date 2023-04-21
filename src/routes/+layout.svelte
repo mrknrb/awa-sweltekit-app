@@ -1,13 +1,13 @@
 <script lang="ts">
 	import '../app.css';
 	import '../scrollbar.css';
-	import PageButton from '../Pages/Layout/Components/PageButton.svelte';
+	import PageButton from './Layout/Components/PageButton.svelte';
 
 	import { onMount } from 'svelte';
 
 	import { getAuth, onAuthStateChanged } from 'firebase/auth';
-	import { isLoggedIn } from '../Pages/User/Store/authStore';
-	import UserButton from '../Pages/Layout/Components/UserButton.svelte';
+	import { isLoggedIn } from './user/Store/authStore';
+	import UserButton from './Layout/Components/UserButton.svelte';
 	import firebaseApp from '../Egyebek/FirebaseInit';
 
 	firebaseApp;

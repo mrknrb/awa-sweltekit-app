@@ -1,6 +1,6 @@
-import { TimeUnits } from '../Egyebek/TimeUnit/TimeUnits';
-import { AMF } from '../Egyebek/AMF';
-import { timeUnitsArray } from '../Egyebek/TimeUnit/timeUnitsArray';
+import { TimeUnits } from '../Enums/TimeUnit/TimeUnits';
+import { AMF } from '../../../Egyebek/AMF';
+import { timeUnitsArray } from '../Enums/TimeUnit/timeUnitsArray';
 
 export abstract class TimeFunctions {
 	static BasicToUnit(value: number, unit: TimeUnits) {

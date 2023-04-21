@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isLoggedIn } from '../../User/Store/authStore';
+	import { isLoggedIn } from '../../user/Store/authStore';
 	import { getAuth } from 'firebase/auth';
 
 	let src = '';

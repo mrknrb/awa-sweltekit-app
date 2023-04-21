@@ -1,6 +1,6 @@
 import { StaticData_Activity } from './StaticDataTypes/StaticData_Activity';
 import { ActivityTypes } from '../../Enums/ActivityTypes';
-import { TimeUnits } from '../../../../Egyebek/TimeUnit/TimeUnits';
+import { TimeUnits } from '../../Enums/TimeUnit/TimeUnits';
 import { SettingsTypes } from '../../Enums/SettingsTypes';
 import { ActivityGroupTypes } from '../../Enums/ActivityGroupTypes';
 
