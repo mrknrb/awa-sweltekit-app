@@ -3,10 +3,14 @@ module.exports = {
   purge: ['./src/**/*.html', './src/**/*.svelte', './src/**/*.css'],
   theme: {
     extend: {},
-  },
+  }
+}
+/*
+
+,
   plugins: [require("daisyui")],
   daisyui: {
-    styled: true,
+  styled: true,
     themes: true,
     base: true,
     utils: true,
@@ -14,5 +18,4 @@ module.exports = {
     rtl: false,
     prefix: "",
     darkTheme: "dark",
-  },
-}
+},*/

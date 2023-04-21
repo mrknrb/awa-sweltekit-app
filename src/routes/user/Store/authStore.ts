@@ -6,9 +6,9 @@ import {
 	signOut
 } from 'firebase/auth';
 import { goto } from '$app/navigation';
-import { ActivityTypes } from '../../Editor/Enums/ActivityTypes';
-import { SaveData_Activity } from '../../Editor/Data/SaveData/SaveData_Activity';
-import { saveDataMainStore } from '../../Editor/Store/StoreSaveData';
+import { ActivityTypes } from '../../../routes/editor/Enums/ActivityTypes';
+import { SaveData_Activity } from '../../../routes/editor/Data/SaveData/SaveData_Activity';
+import { saveDataMainStore } from '../../../routes/editor/Store/StoreSaveData';
 
 export const isLoggedIn = writable(false);
 

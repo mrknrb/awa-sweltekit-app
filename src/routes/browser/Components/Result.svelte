@@ -14,7 +14,7 @@
 </script>
 
 <div class="flex flex-row m-4  ">
-	<div class="flex flex-row btn btn-block  " on:click={openPage}>
+	<div class="flex flex-row  bg-green-500 " on:click={openPage}>
 		<h2 class="m-4">{lifeStyleBasicData.title}</h2>
 		<h2 class="m-4">{lifeStyleBasicData._id}</h2>
 	</div>
